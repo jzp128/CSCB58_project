@@ -1,13 +1,22 @@
 module PianoTapper(SW,KEY,HEX0, HEX1, HEX2, HEX3, HEX4,HEX5);
 input [3:0] KEY;
 input [9:0] SW;
+assign tap0 = [0]KEY;
+assign tap1 = [1]KEY;
+assign tap2 = [2]KEY;
+assign tap3 = [3]KEY;
+
+always @(posedge [3:0]KEY)
+	begin
+		
+	end
 
 // draw the game
 drawGame startGame(x1,y1,x2,y2,x3,y3,x4,y4,go,done,clock,plot, RX, RY,colour,ledr, gd,res)
 
 endmodule
 
-module clock(SW, KEY, CLOCK_50, HEX0);
+module clock(SW, CLOCK_50, HEX0);
     input [9:0] SW;
     input CLOCK_50;
     
@@ -44,7 +53,7 @@ module counter(enable, clk, freq, clear_b, q);
                 2'b01: ratedividerout = (w1hzout == 0) ? 1 : 0;
                 2'b10: ratedividerout = (w05hzout == 0) ? 1 : 0;
                 2'b11: ratedividerout = (w025hzout == 0) ? 1 : 0;
-            endcase
+            endcasekey
         end
     displaycounter myDisplay(ratedividerout, clk, clear_b, q);
 endmodule
@@ -65,16 +74,11 @@ module ratedivider(enable, load, clk, clear_b, q);
     end
 endmodule
 
-module checklane(input [11:0] screenstate,input input currstate, input [7:0] X, input [7:0] Y, output isgood);
-	assign good = screenstate[15] || 
-	if (currstate == finish)
-		X <= 1'b0;
-		Y <= 1'b0;
-	else if (currstate == draw)
-		
-		
+module checklane(input [11:0] screenstate, input reset_g, input currstate, input key, input [7:0] X, input [7:0] Y, output isgood);
+
 		
 endmodule
+
 
 
 module drawGame(x1,y1,x2,y2,x3,y3,x4,y4,go,done,clock,plot, RX, RY,colour,ledr, hex4, hex5, gd,res);
@@ -88,6 +92,7 @@ module drawGame(x1,y1,x2,y2,x3,y3,x4,y4,go,done,clock,plot, RX, RY,colour,ledr, 
 	input go;
 	input res; //key0
 	input gd; //gamedone
+	input t1,t2,t3,t4;
 	output reg done;
 	output reg [7:0]RX; // general input of Xs
 	output reg [6:0]RY;
@@ -114,7 +119,7 @@ module drawGame(x1,y1,x2,y2,x3,y3,x4,y4,go,done,clock,plot, RX, RY,colour,ledr, 
 	reg [5:0] blackx;
 	reg [3:0] blacky;
 
-	//Used to search for a specfic tile by gooing through each pixel one by one 
+	//Used to search for a specfic tile by going through each pixel one by one 
 	reg [7:0]sx;
 	reg [7:0]sy;
 	//State variables used to know which state the FSM is currently on, these varaibles are set in every state 
@@ -128,7 +133,8 @@ module drawGame(x1,y1,x2,y2,x3,y3,x4,y4,go,done,clock,plot, RX, RY,colour,ledr, 
 	
 	always @(*)
 	begin gameStates:
-		case (present)if (fd)
+		case (present)
+			if (fd)game
 				next = eraseS;
 			else 
 			
@@ -181,10 +187,80 @@ module drawGame(x1,y1,x2,y2,x3,y3,x4,y4,go,done,clock,plot, RX, RY,colour,ledr, 
 			
 		endcase
 		
-		// if (check)
-			//check other stuff
+		// initiate bottom lane for checking
 		
+		if (check)
+		begin
+			//	assign good = screenstate[15] || 
+			//	if (currstate == finish)
+			//		X <= 1'b0;
+			//		Y <= 1'b0;
+			//	else if (currstate == draw)
+			reg valid;
 		
+			always@(negedge key)
+			begin
+				//if reset pressed - reset game
+				if (reset_g)
+					X <= 1'b0;
+					Y <= 1'b0;
+				else if (sx[7] == 1)
+					begin
+						
+					end
+				//else if key pressed && correct
+					//check if there's still pixels to draw
+						//if yes erase current row and draw and update score
+						// else end game
+				// else if no keys to be pressed, erase row
+				// else wrong, end game
+			end
+		end
 		
+		//drawing 10x10 tile
+		reg [9:0] drawx;
+		reg [9:0] drawy;
+		reg [9:0] searchx;
+		reg [9:0] searchy;
+		//erasing 10x10 tile
+		reg [9:0] erasex;
+		reg [9:0] erasey;
+		
+		if (draw)
+		begin
+			if (drawx == 4'b1010)
+			begin
+				drawx <= 4'b0; //drawx is at 0 if max is reached
+				if (drawy < 4'b1010)
+					drawy<=drawy+1'b1; //redraw
+				else
+					drawy<=4'b0;
+			end
+			else
+			begin
+				drawx <= drawx+1'b1;
+				//draw on vga -refer to rx and ry
+			end
+				
+		end
+		
+		if (erase)
+		begin
+			
+			if (erasex==4'b1010)
+			begin
+				erasex<=4'b0;
+				if (erasey < 4'b1010)
+					erasey<=erasey+1'b1; //redraw
+				else
+					erasey<=4'b0;
+			end
+			else
+			begin
+				erasex <= erasex+1'b1;
+				//erase on vga -refer to rx and ry
+			end
+
+		end
 	
 endmodule
