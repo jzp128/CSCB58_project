@@ -41,8 +41,9 @@ module graphicstest
 	wire [6:0] y;
 	wire writeEn;
 	assign colour = SW[9:7];
-	assign writeEn = KEY[3];
-	wire ld_x, ld_y, ld_r;
+
+	assign writeEn = KEY[3]; // change this
+
 	wire [6:0] out_x, out_y;
 	wire [2:0] out_colour;
 
