@@ -1,0 +1,7 @@
+
+State Machine - |graphicstest|sickomode:pickandroll|display_controller:controller|curr_state
+Name curr_state.DONE curr_state.DRAW_1 curr_state.ERASE_1 curr_state.IDLE 
+curr_state.IDLE 0 0 0 0 
+curr_state.ERASE_1 0 0 1 1 
+curr_state.DRAW_1 0 1 0 1 
+curr_state.DONE 1 0 0 1 

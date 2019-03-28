@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Mar 27 18:29:17 2019
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : graphicstest
+Top-level Entity Name : graphicstest
+Family : Cyclone IV E
+Total logic elements : 84
+    Total combinational functions : 79
+    Dedicated logic registers : 32
+Total registers : 32
+Total pins : 54
+Total virtual pins : 0
+Total memory bits : 57,600
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

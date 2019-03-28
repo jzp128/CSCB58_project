@@ -1,0 +1,6 @@
+Info (10281): Verilog HDL Declaration information at FSM.v(2): object "start" differs only in case from object "START" in the same scope File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/FSM.v Line: 2
+Info (10281): Verilog HDL Declaration information at FSM.v(2): object "reset" differs only in case from object "RESET" in the same scope File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/FSM.v Line: 2
+Info (10281): Verilog HDL Declaration information at FSM.v(2): object "hit" differs only in case from object "HIT" in the same scope File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/FSM.v Line: 2
+Info (10281): Verilog HDL Declaration information at FSM.v(2): object "miss" differs only in case from object "MISS" in the same scope File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/FSM.v Line: 2
+Warning (10268): Verilog HDL information at project.v(172): always construct contains both blocking and non-blocking assignments File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/project.v Line: 172
+Warning (10268): Verilog HDL information at project.v(264): always construct contains both blocking and non-blocking assignments File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/project.v Line: 264
