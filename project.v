@@ -1,3 +1,5 @@
+`timescale 1ns / 1ns
+
 module sickomode(
   input clk,
   input resetn,
@@ -9,8 +11,8 @@ module sickomode(
   output all_done,
   output [8:0] x_out,
   output [7:0] y_out,
-  output [2:0] c_out
-  );
+  output [2:0] c_out,
+  output writeEN);
 
     wire finish_draw, finish_erase;
 
@@ -48,30 +50,6 @@ module sickomode(
         .erase_done(finish_erase)
     );
 
-     draw drawlane2(
-		.clk(clk),
-		.startdraw(startdraw),
-		.lane_number(4'b0001),
-		.lane_above(row_1),
-		.offset(offset[5:0]),
-		.x_out(draw_x_row_1[8:0]),
-		.y_out(draw_y_row_1[7:0]),
-		.c_out(draw_color),
-		.finish_draw(draw_done)
-	);
-    
-    erase eraselane2(
-        .clk(clk),
-        .start_erase(start_erase),
-        .line_id(4'b0001),
-        .line_below(3'b111),
-        .offset(offset),
-        .x_out(erase_x_row_1),
-        .y_out(erase_y_row_1),
-        .c_out(erase_color),
-        .erase_done(finish_erase)
-    );
-
     display_controller controller(
         .clk(clk),
         .resetn(resetn),
@@ -82,11 +60,12 @@ module sickomode(
         .erase_color(erase_color),
         .draw_x_row_1(draw_x_row_1),
         .draw_rowy1(draw_y_row_1),
-        .erase_rowy1(draw_x_row_1),
-        .erase_rowy1(draw_y_row_1),
+        .erase_rowx1(erase_x_row_1),
+        .erase_rowy1(erase_y_row_1),
         .all_done(all_done),
         .go_draw(start_draw),
         .go_erase(start_erase),
+        .writeEN(writeEN),
         .x_out(x_out),
         .y_out(y_out),
         .c_out(c_out)
@@ -104,7 +83,7 @@ module display_controller(
     input row_draw_done, row_erase_done,
     input draw_color, erase_color,
     input [7:0] draw_x_row_1,
-    input [7:0] erase_rowy1,
+    input [7:0] erase_rowx1,
     input [8:0] draw_rowy1,
     input [8:0] erase_rowy1,
     input [5:0] master_state,
@@ -145,7 +124,7 @@ module display_controller(
             ERASE_1 : begin // clears first row
                 writeEN = 1'b1;
                 go_erase = 1'b1; // enables erasing of row 1
-                x_out = erase_rowy1;
+                x_out = erase_rowx1;
                 y_out = erase_rowy1;
                 c_out = 2'b000; // black like the background
                 end
@@ -190,7 +169,8 @@ input [5:0] offset,
 output reg [8:0] x_out,
 output reg [7:0] y_out,
 output reg finish_draw,
-output reg c_out);
+output reg c_out
+);
     reg [7:0] lane_id_offset;
     always @(*)
         begin
