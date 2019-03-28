@@ -42,7 +42,7 @@ module graphicstest
 	wire writeEn;
 	assign colour = SW[9:7];
 
-	assign writeEn = KEY[3]; // change this
+//	assign writeEn = KEY[3]; // change this
 
 	wire [6:0] out_x, out_y;
 	wire [2:0] out_colour;
@@ -67,7 +67,7 @@ module graphicstest
 			.VGA_BLANK(VGA_BLANK_N),
 			.VGA_SYNC(VGA_SYNC_N),
 			.VGA_CLK(VGA_CLK));
-		defparam VGA.RESOLUTION = "160x120";
+		defparam VGA.RESOLUTION = "320x240";
 		defparam VGA.MONOCHROME = "FALSE";
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
 		defparam VGA.BACKGROUND_IMAGE = "black.mif";
@@ -76,31 +76,43 @@ module graphicstest
 	// for the VGA controller, in addition to any other functionality your design may require.
 	wire [5:0] offset;
 	wire [5:0] current_state;
-	wire drawing_done;
+	// wire drawing_done;
+
+	wire screen_reset, drawing_done, wait_done, input_checked, hit, miss, hit_finish, miss_finish, coloured_line;
+//	wire [5:0] offset;
+	wire [2:0] bottom_line;
+	wire reset_out, draw_out, wait_out, edge_out, offset_increase, check_input;
+	// fsm master_state_machine(
+	// 	.clk(CLOCK_50),
+	// 	.reset(KEY[0]),
+	// 	.start(KEY[3]),
+	// 	.screen
+	// );
+
 	counteroffset lineface(
-		.clk(KEY[1]),
-		.resetn(resetn),
-		.startn(KEY[0]),
-//		.current_state(current_state[5:0]),
+		.clk(CLOCK_50),
+		.resetn(KEY[0]),
+		.startn(KEY[3]),
 		.current_state(6'b000001),
 		.edge_go(edge_go),
 		.offset_increase(offset_increase),
 		.offset(offset[5:0])
 		);
 	
-	wire [2:0] dab;
+	assign LEDR[0] = KEY[3];
 	sickomode pickandroll(
 		.clk(KEY[1]),
-		.resetn(KEY[3]),
-		.start(KEY[0]),
+		.resetn(KEY[0]),
+		.start(KEY[3]),
 		.offset(offset),
-		.lane_1(3'b000),
+		.row_1(3'b000),
 		.master_state(6'b000001),
 		.all_done(drawing_done),
 		.x_out(out_x),
 		.y_out(out_y),
 		.c_out(out_colour),
-		.testing(dab)
+		.writeEN(writeEn),
+		.stateoutputTest(LEDR[3:1])
 	);
 
 	//wire [27:0] w1hzout;

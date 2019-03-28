@@ -12,7 +12,8 @@ module sickomode(
   output [8:0] x_out,
   output [7:0] y_out,
   output [2:0] c_out,
-  output writeEN);
+  output writeEN,
+  output [2:0]stateoutputTest);
 
     wire finish_draw, finish_erase;
 
@@ -68,7 +69,8 @@ module sickomode(
         .writeEN(writeEN),
         .x_out(x_out),
         .y_out(y_out),
-        .c_out(c_out)
+        .c_out(c_out),
+        .state_output_test(stateoutputTest)
     );
 
 endmodule // sickomode
@@ -91,16 +93,18 @@ module display_controller(
     output reg [8:0] x_out,
     output reg [7:0] y_out,
     output reg [2:0] c_out,
-    output reg all_done
+    output reg all_done,
+    output [2:0] state_output_test
     );
 
+    assign state_output_test = curr_state;
     reg [2:0] next_state;
     localparam  IDLE        = 3'd0,
                 ERASE_1     = 3'd1,
                 DRAW_1      = 3'd2,
                 DONE        = 3'd3;
 
-    reg curr_state;
+    reg [2:0] curr_state;
     initial curr_state = IDLE;
     always@(*)
     begin: state_table
