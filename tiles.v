@@ -185,7 +185,7 @@ module control(
                PAUSE = 5'b00011,
                DRAW_TILES = 5'b00100,
                INIT_T1 = 5'b00101,
-               //INIT_T2 = 5'b00110,
+               INIT_T2 = 5'b00110,
                //INIT_T3 = 5'b00111,
                //INIT_T4 = 5'b01000,
                DRAW_T = 5'b01001,
@@ -273,8 +273,8 @@ module control(
         // choose a random tile to draw
             if (tile == 2'b00)
                 state = INIT_T1;
-//            else if (tile == 2'b01)
-//                state = INIT_T2;
+            else if (tile == 2'b01)
+                state = INIT_T2;
 //            else if (tile == 2'b10)
 //                state = INIT_T3;
 //            else
@@ -287,19 +287,19 @@ module control(
             x_d <= 8'b0;
             y_d <= 7'd11;
             t_c <= 3'b000;
-            //c_tile <= 2'b0;
+            c_tile <= 2'b0;
             state = DRAW_T;
         end
-//        INIT_T2: begin
+        INIT_T2: begin
 //        // set where to draw second tile
-//            p_x <= 8'b0;
-//            p_y <= 7'd38;
-//            x_d <= 8'b0;
-//            y_d <= 7'd38;
-//            t_c <= 3'b010;
-//            c_tile <= 2'b01;
-//            state = DRAW_T;
-//        end
+            p_x <= 8'b0;
+            p_y <= 7'd11;
+            x_d <= 8'b0;
+            y_d <= 7'd11;
+            t_c <= 3'b000;
+            c_tile <= 2'b01;
+            state = DRAW_T;
+        end
 //        INIT_T3: begin
 //        // set where to draw third tile
 //            p_x <= 8'b0;
