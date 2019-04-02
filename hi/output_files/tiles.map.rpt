@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tiles
-Fri Mar 29 16:48:40 2019
+Mon Apr 01 16:53:32 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -19,24 +19,25 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  11. Registers Removed During Synthesis
  12. Removed Registers Triggering Further Register Optimizations
  13. General Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated
- 16. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 17. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 18. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 19. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 20. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 21. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 22. Parameter Settings for Inferred Entity Instance: control:comb_4|lpm_divide:Div0
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated
+ 17. Parameter Settings for User Entity Instance: vga_adapter:VGA
+ 18. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
+ 19. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
+ 20. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+ 21. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
+ 22. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
  23. altsyncram Parameter Settings by Entity Instance
  24. altpll Parameter Settings by Entity Instance
- 25. Port Connectivity Checks: "control:comb_4|generator:g"
- 26. Port Connectivity Checks: "control:comb_4"
- 27. Port Connectivity Checks: "vga_adapter:VGA"
- 28. Post-Synthesis Netlist Statistics for Top Partition
- 29. Elapsed Time Per Partition
- 30. Analysis & Synthesis Messages
- 31. Analysis & Synthesis Suppressed Messages
+ 25. Port Connectivity Checks: "control:comb_4|counter:c_one_hz"
+ 26. Port Connectivity Checks: "control:comb_4|generator:g"
+ 27. Port Connectivity Checks: "control:comb_4"
+ 28. Port Connectivity Checks: "vga_adapter:VGA"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -62,15 +63,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Mar 29 16:48:40 2019       ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 01 16:53:32 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; tiles                                       ;
 ; Top-level Entity Name              ; tiles                                       ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 843                                         ;
-;     Total combinational functions  ; 836                                         ;
-;     Dedicated logic registers      ; 205                                         ;
-; Total registers                    ; 205                                         ;
+; Total logic elements               ; 499                                         ;
+;     Total combinational functions  ; 490                                         ;
+;     Dedicated logic registers      ; 203                                         ;
+; Total registers                    ; 203                                         ;
 ; Total pins                         ; 101                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 57,600                                      ;
@@ -179,8 +180,7 @@ refer to the applicable agreement for further details.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -212,14 +212,6 @@ refer to the applicable agreement for further details.
 ; stratix_pll.inc                                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_pll.inc                       ;         ;
 ; stratixii_pll.inc                                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratixii_pll.inc                     ;         ;
 ; cycloneii_pll.inc                                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cycloneii_pll.inc                     ;         ;
-; lpm_divide.tdf                                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_divide.tdf                        ;         ;
-; abs_divider.inc                                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/abs_divider.inc                       ;         ;
-; sign_div_unsign.inc                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc                   ;         ;
-; db/lpm_divide_5jm.tdf                               ; yes             ; Auto-Generated Megafunction            ; C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/db/lpm_divide_5jm.tdf                         ;         ;
-; db/sign_div_unsign_tlh.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/db/sign_div_unsign_tlh.tdf                    ;         ;
-; db/alt_u_div_e7f.tdf                                ; yes             ; Auto-Generated Megafunction            ; C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/db/alt_u_div_e7f.tdf                          ;         ;
-; db/add_sub_7pc.tdf                                  ; yes             ; Auto-Generated Megafunction            ; C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/db/add_sub_7pc.tdf                            ;         ;
-; db/add_sub_8pc.tdf                                  ; yes             ; Auto-Generated Megafunction            ; C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/db/add_sub_8pc.tdf                            ;         ;
 +-----------------------------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------------------+---------+
 
 
@@ -228,20 +220,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 843            ;
+; Estimated Total logic elements              ; 499            ;
 ;                                             ;                ;
-; Total combinational functions               ; 836            ;
+; Total combinational functions               ; 490            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 272            ;
-;     -- 3 input functions                    ; 218            ;
-;     -- <=2 input functions                  ; 346            ;
+;     -- 4 input functions                    ; 194            ;
+;     -- 3 input functions                    ; 94             ;
+;     -- <=2 input functions                  ; 202            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 566            ;
-;     -- arithmetic mode                      ; 270            ;
+;     -- normal mode                          ; 316            ;
+;     -- arithmetic mode                      ; 174            ;
 ;                                             ;                ;
-; Total registers                             ; 205            ;
-;     -- Dedicated logic registers            ; 205            ;
+; Total registers                             ; 203            ;
+;     -- Dedicated logic registers            ; 203            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 101            ;
@@ -253,42 +245,38 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 185            ;
-; Total fan-out                               ; 3385           ;
-; Average fan-out                             ; 2.70           ;
+; Maximum fan-out                             ; 182            ;
+; Total fan-out                               ; 2424           ;
+; Average fan-out                             ; 2.68           ;
 +---------------------------------------------+----------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                ;
-+---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                   ; Entity Name            ; Library Name ;
-+---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |tiles                                                  ; 836 (0)             ; 205 (0)                   ; 57600       ; 0            ; 0       ; 0         ; 101  ; 0            ; |tiles                                                                                                                ; tiles                  ; work         ;
-;    |control:comb_4|                                     ; 718 (355)           ; 175 (138)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4                                                                                                 ; control                ; work         ;
-;       |check_tile:ct|                                   ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|check_tile:ct                                                                                   ; check_tile             ; work         ;
-;       |counter:c|                                       ; 37 (37)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|counter:c                                                                                       ; counter                ; work         ;
-;       |display_lives:d|                                 ; 3 (3)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|display_lives:d                                                                                 ; display_lives          ; work         ;
-;       |generator:g|                                     ; 6 (6)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|generator:g                                                                                     ; generator              ; work         ;
-;       |lpm_divide:Div0|                                 ; 316 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|lpm_divide:Div0                                                                                 ; lpm_divide             ; work         ;
-;          |lpm_divide_5jm:auto_generated|                ; 316 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|lpm_divide:Div0|lpm_divide_5jm:auto_generated                                                   ; lpm_divide_5jm         ; work         ;
-;             |sign_div_unsign_tlh:divider|               ; 316 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|lpm_divide:Div0|lpm_divide_5jm:auto_generated|sign_div_unsign_tlh:divider                       ; sign_div_unsign_tlh    ; work         ;
-;                |alt_u_div_e7f:divider|                  ; 316 (316)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|lpm_divide:Div0|lpm_divide_5jm:auto_generated|sign_div_unsign_tlh:divider|alt_u_div_e7f:divider ; alt_u_div_e7f          ; work         ;
-;    |hex_decoder:h0|                                     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|hex_decoder:h0                                                                                                 ; hex_decoder            ; work         ;
-;    |hex_decoder:h1|                                     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|hex_decoder:h1                                                                                                 ; hex_decoder            ; work         ;
-;    |hex_decoder:h4|                                     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|hex_decoder:h4                                                                                                 ; hex_decoder            ; work         ;
-;    |vga_adapter:VGA|                                    ; 97 (1)              ; 30 (0)                    ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA                                                                                                ; vga_adapter            ; work         ;
-;       |altsyncram:VideoMemory|                          ; 12 (0)              ; 4 (0)                     ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory                                                                         ; altsyncram             ; work         ;
-;          |altsyncram_60g1:auto_generated|               ; 12 (0)              ; 4 (4)                     ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated                                          ; altsyncram_60g1        ; work         ;
-;             |decode_e8a:rden_decode_b|                  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|decode_e8a:rden_decode_b                 ; decode_e8a             ; work         ;
-;             |decode_lsa:decode2|                        ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|decode_lsa:decode2                       ; decode_lsa             ; work         ;
-;             |mux_0nb:mux3|                              ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|mux_0nb:mux3                             ; mux_0nb                ; work         ;
-;       |vga_address_translator:user_input_translator|    ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|vga_address_translator:user_input_translator                                                   ; vga_address_translator ; work         ;
-;       |vga_controller:controller|                       ; 66 (48)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|vga_controller:controller                                                                      ; vga_controller         ; work         ;
-;          |vga_address_translator:controller_translator| ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator                         ; vga_address_translator ; work         ;
-;       |vga_pll:mypll|                                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|vga_pll:mypll                                                                                  ; vga_pll                ; work         ;
-;          |altpll:altpll_component|                      ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component                                                          ; altpll                 ; work         ;
-+---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                ;
++---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------+------------------------+--------------+
+; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                   ; Entity Name            ; Library Name ;
++---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------+------------------------+--------------+
+; |tiles                                                  ; 490 (1)             ; 203 (0)                   ; 57600       ; 0            ; 0       ; 0         ; 101  ; 0            ; |tiles                                                                                                ; tiles                  ; work         ;
+;    |control:comb_4|                                     ; 378 (278)           ; 173 (108)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4                                                                                 ; control                ; work         ;
+;       |check_tile:ct|                                   ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|check_tile:ct                                                                   ; check_tile             ; work         ;
+;       |counter:c_one_hz|                                ; 37 (37)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|counter:c_one_hz                                                                ; counter                ; work         ;
+;       |counter:c|                                       ; 53 (53)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|counter:c                                                                       ; counter                ; work         ;
+;       |display_lives:d|                                 ; 3 (3)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|display_lives:d                                                                 ; display_lives          ; work         ;
+;       |generator:g|                                     ; 6 (6)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|generator:g                                                                     ; generator              ; work         ;
+;    |hex_decoder:h0|                                     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|hex_decoder:h0                                                                                 ; hex_decoder            ; work         ;
+;    |hex_decoder:h1|                                     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|hex_decoder:h1                                                                                 ; hex_decoder            ; work         ;
+;    |vga_adapter:VGA|                                    ; 97 (1)              ; 30 (0)                    ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
+;       |altsyncram:VideoMemory|                          ; 12 (0)              ; 4 (0)                     ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
+;          |altsyncram_60g1:auto_generated|               ; 12 (0)              ; 4 (4)                     ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated                          ; altsyncram_60g1        ; work         ;
+;             |decode_e8a:rden_decode_b|                  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|decode_e8a:rden_decode_b ; decode_e8a             ; work         ;
+;             |decode_lsa:decode2|                        ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|decode_lsa:decode2       ; decode_lsa             ; work         ;
+;             |mux_0nb:mux3|                              ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|mux_0nb:mux3             ; mux_0nb                ; work         ;
+;       |vga_address_translator:user_input_translator|    ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|vga_address_translator:user_input_translator                                   ; vga_address_translator ; work         ;
+;       |vga_controller:controller|                       ; 66 (48)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|vga_controller:controller                                                      ; vga_controller         ; work         ;
+;          |vga_address_translator:controller_translator| ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator         ; vga_address_translator ; work         ;
+;       |vga_pll:mypll|                                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|vga_pll:mypll                                                                  ; vga_pll                ; work         ;
+;          |altpll:altpll_component|                      ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component                                          ; altpll                 ; work         ;
++---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -302,51 +290,49 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |tiles|control:comb_4|prev_state                                                                                                                                                                                                                                                                                                              ;
-+-------------------------+-------------------------+----------------+----------------------+------------------------+----------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+-----------------------+------------------+------------------+----------------------+------------------+
-; Name                    ; prev_state.CLEAR_SCREEN ; prev_state.WIN ; prev_state.GAME_OVER ; prev_state.CHECK_LEVEL ; prev_state.INC_SPEED ; prev_state.CHECK_TILE ; prev_state.FRAME ; prev_state.ERASE_TILE ; prev_state.DRAW_T ; prev_state.INIT_T1 ; prev_state.DRAW_TILES ; prev_state.PAUSE ; prev_state.RESET ; prev_state.DRAW_LINE ; prev_state.START ;
-+-------------------------+-------------------------+----------------+----------------------+------------------------+----------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+-----------------------+------------------+------------------+----------------------+------------------+
-; prev_state.START        ; 0                       ; 0              ; 0                    ; 0                      ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 0                ;
-; prev_state.DRAW_LINE    ; 0                       ; 0              ; 0                    ; 0                      ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 1                    ; 1                ;
-; prev_state.RESET        ; 0                       ; 0              ; 0                    ; 0                      ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 1                ; 0                    ; 1                ;
-; prev_state.PAUSE        ; 0                       ; 0              ; 0                    ; 0                      ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 1                ; 0                ; 0                    ; 1                ;
-; prev_state.DRAW_TILES   ; 0                       ; 0              ; 0                    ; 0                      ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 1                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.INIT_T1      ; 0                       ; 0              ; 0                    ; 0                      ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 1                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.DRAW_T       ; 0                       ; 0              ; 0                    ; 0                      ; 0                    ; 0                     ; 0                ; 0                     ; 1                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.ERASE_TILE   ; 0                       ; 0              ; 0                    ; 0                      ; 0                    ; 0                     ; 0                ; 1                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.FRAME        ; 0                       ; 0              ; 0                    ; 0                      ; 0                    ; 0                     ; 1                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.CHECK_TILE   ; 0                       ; 0              ; 0                    ; 0                      ; 0                    ; 1                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.INC_SPEED    ; 0                       ; 0              ; 0                    ; 0                      ; 1                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.CHECK_LEVEL  ; 0                       ; 0              ; 0                    ; 1                      ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.GAME_OVER    ; 0                       ; 0              ; 1                    ; 0                      ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.WIN          ; 0                       ; 1              ; 0                    ; 0                      ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.CLEAR_SCREEN ; 1                       ; 0              ; 0                    ; 0                      ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-+-------------------------+-------------------------+----------------+----------------------+------------------------+----------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+-----------------------+------------------+------------------+----------------------+------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |tiles|control:comb_4|prev_state                                                                                                                                                                                                                                                                                       ;
++-------------------------+-------------------------+----------------+----------------------+------------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+-----------------------+------------------+------------------+----------------------+------------------+
+; Name                    ; prev_state.CLEAR_SCREEN ; prev_state.WIN ; prev_state.GAME_OVER ; prev_state.CHECK_LEVEL ; prev_state.CHECK_TILE ; prev_state.FRAME ; prev_state.ERASE_TILE ; prev_state.DRAW_T ; prev_state.INIT_T1 ; prev_state.DRAW_TILES ; prev_state.PAUSE ; prev_state.RESET ; prev_state.DRAW_LINE ; prev_state.START ;
++-------------------------+-------------------------+----------------+----------------------+------------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+-----------------------+------------------+------------------+----------------------+------------------+
+; prev_state.START        ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 0                ;
+; prev_state.DRAW_LINE    ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 1                    ; 1                ;
+; prev_state.RESET        ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 1                ; 0                    ; 1                ;
+; prev_state.PAUSE        ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 1                ; 0                ; 0                    ; 1                ;
+; prev_state.DRAW_TILES   ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 1                     ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.INIT_T1      ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 1                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.DRAW_T       ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 1                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.ERASE_TILE   ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 1                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.FRAME        ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 1                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.CHECK_TILE   ; 0                       ; 0              ; 0                    ; 0                      ; 1                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.CHECK_LEVEL  ; 0                       ; 0              ; 0                    ; 1                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.GAME_OVER    ; 0                       ; 0              ; 1                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.WIN          ; 0                       ; 1              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.CLEAR_SCREEN ; 1                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
++-------------------------+-------------------------+----------------+----------------------+------------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+-----------------------+------------------+------------------+----------------------+------------------+
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |tiles|control:comb_4|state                                                                                                                                                                                                                                   ;
-+--------------------+--------------------+-----------+-----------------+-------------------+-----------------+------------------+-------------+------------------+--------------+---------------+------------------+-------------+-------------+-----------------+-------------+
-; Name               ; state.CLEAR_SCREEN ; state.WIN ; state.GAME_OVER ; state.CHECK_LEVEL ; state.INC_SPEED ; state.CHECK_TILE ; state.FRAME ; state.ERASE_TILE ; state.DRAW_T ; state.INIT_T1 ; state.DRAW_TILES ; state.PAUSE ; state.RESET ; state.DRAW_LINE ; state.START ;
-+--------------------+--------------------+-----------+-----------------+-------------------+-----------------+------------------+-------------+------------------+--------------+---------------+------------------+-------------+-------------+-----------------+-------------+
-; state.START        ; 0                  ; 0         ; 0               ; 0                 ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 0           ;
-; state.DRAW_LINE    ; 0                  ; 0         ; 0               ; 0                 ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 1               ; 1           ;
-; state.RESET        ; 0                  ; 0         ; 0               ; 0                 ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 1           ; 0               ; 1           ;
-; state.PAUSE        ; 0                  ; 0         ; 0               ; 0                 ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 1           ; 0           ; 0               ; 1           ;
-; state.DRAW_TILES   ; 0                  ; 0         ; 0               ; 0                 ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 1                ; 0           ; 0           ; 0               ; 1           ;
-; state.INIT_T1      ; 0                  ; 0         ; 0               ; 0                 ; 0               ; 0                ; 0           ; 0                ; 0            ; 1             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.DRAW_T       ; 0                  ; 0         ; 0               ; 0                 ; 0               ; 0                ; 0           ; 0                ; 1            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.ERASE_TILE   ; 0                  ; 0         ; 0               ; 0                 ; 0               ; 0                ; 0           ; 1                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.FRAME        ; 0                  ; 0         ; 0               ; 0                 ; 0               ; 0                ; 1           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.CHECK_TILE   ; 0                  ; 0         ; 0               ; 0                 ; 0               ; 1                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.INC_SPEED    ; 0                  ; 0         ; 0               ; 0                 ; 1               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.CHECK_LEVEL  ; 0                  ; 0         ; 0               ; 1                 ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.GAME_OVER    ; 0                  ; 0         ; 1               ; 0                 ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.WIN          ; 0                  ; 1         ; 0               ; 0                 ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.CLEAR_SCREEN ; 1                  ; 0         ; 0               ; 0                 ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-+--------------------+--------------------+-----------+-----------------+-------------------+-----------------+------------------+-------------+------------------+--------------+---------------+------------------+-------------+-------------+-----------------+-------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |tiles|control:comb_4|state                                                                                                                                                                                                                 ;
++--------------------+--------------------+-----------+-----------------+-------------------+------------------+-------------+------------------+--------------+---------------+------------------+-------------+-------------+-----------------+-------------+
+; Name               ; state.CLEAR_SCREEN ; state.WIN ; state.GAME_OVER ; state.CHECK_LEVEL ; state.CHECK_TILE ; state.FRAME ; state.ERASE_TILE ; state.DRAW_T ; state.INIT_T1 ; state.DRAW_TILES ; state.PAUSE ; state.RESET ; state.DRAW_LINE ; state.START ;
++--------------------+--------------------+-----------+-----------------+-------------------+------------------+-------------+------------------+--------------+---------------+------------------+-------------+-------------+-----------------+-------------+
+; state.START        ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 0           ;
+; state.DRAW_LINE    ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 1               ; 1           ;
+; state.RESET        ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 1           ; 0               ; 1           ;
+; state.PAUSE        ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 1           ; 0           ; 0               ; 1           ;
+; state.DRAW_TILES   ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 1                ; 0           ; 0           ; 0               ; 1           ;
+; state.INIT_T1      ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 1             ; 0                ; 0           ; 0           ; 0               ; 1           ;
+; state.DRAW_T       ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 1            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
+; state.ERASE_TILE   ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 1                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
+; state.FRAME        ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 1           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
+; state.CHECK_TILE   ; 0                  ; 0         ; 0               ; 0                 ; 1                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
+; state.CHECK_LEVEL  ; 0                  ; 0         ; 0               ; 1                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
+; state.GAME_OVER    ; 0                  ; 0         ; 1               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
+; state.WIN          ; 0                  ; 1         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
+; state.CLEAR_SCREEN ; 1                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
++--------------------+--------------------+-----------+-----------------+-------------------+------------------+-------------+------------------+--------------+---------------+------------------+-------------+-------------+-----------------+-------------+
 
 
 +--------------------------------------------------------------------------------------------+
@@ -354,34 +340,42 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------------------------------------------------+
 ; Register name                          ; Reason for Removal                                ;
 +----------------------------------------+---------------------------------------------------+
-; control:comb_4|max_score[7]            ; Stuck at GND due to stuck port data_in            ;
 ; control:comb_4|x_d[0..7]               ; Stuck at GND due to stuck port data_in            ;
 ; control:comb_4|p_x[0..7]               ; Stuck at GND due to stuck port data_in            ;
+; control:comb_4|level[0]                ; Stuck at VCC due to stuck port data_in            ;
+; control:comb_4|level[1..3]             ; Stuck at GND due to stuck port data_in            ;
 ; control:comb_4|check_tile:ct|p1        ; Stuck at GND due to stuck port data_in            ;
 ; control:comb_4|check_tile:ct|p2        ; Stuck at GND due to stuck port data_in            ;
 ; control:comb_4|check_tile:ct|p3        ; Stuck at GND due to stuck port data_in            ;
 ; control:comb_4|check_score             ; Stuck at VCC due to stuck port data_in            ;
+; control:comb_4|speed[0..5]             ; Stuck at VCC due to stuck port data_in            ;
+; control:comb_4|speed[6..8]             ; Stuck at GND due to stuck port data_in            ;
+; control:comb_4|speed[9]                ; Stuck at VCC due to stuck port data_in            ;
+; control:comb_4|speed[10..13]           ; Stuck at GND due to stuck port data_in            ;
+; control:comb_4|speed[14]               ; Stuck at VCC due to stuck port data_in            ;
+; control:comb_4|speed[15]               ; Stuck at GND due to stuck port data_in            ;
+; control:comb_4|speed[16..19]           ; Stuck at VCC due to stuck port data_in            ;
+; control:comb_4|speed[20..27]           ; Stuck at GND due to stuck port data_in            ;
 ; control:comb_4|x[7]                    ; Stuck at GND due to stuck port data_in            ;
 ; control:comb_4|prev_state~2            ; Lost fanout                                       ;
 ; control:comb_4|prev_state~3            ; Lost fanout                                       ;
 ; control:comb_4|prev_state~4            ; Lost fanout                                       ;
 ; control:comb_4|prev_state~5            ; Lost fanout                                       ;
 ; control:comb_4|prev_state~6            ; Lost fanout                                       ;
+; control:comb_4|state~30                ; Lost fanout                                       ;
+; control:comb_4|state~31                ; Lost fanout                                       ;
 ; control:comb_4|state~32                ; Lost fanout                                       ;
 ; control:comb_4|state~33                ; Lost fanout                                       ;
 ; control:comb_4|state~34                ; Lost fanout                                       ;
-; control:comb_4|state~35                ; Lost fanout                                       ;
-; control:comb_4|state~36                ; Lost fanout                                       ;
 ; control:comb_4|prev_state.CLEAR_SCREEN ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
 ; control:comb_4|prev_state.DRAW_LINE    ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
 ; control:comb_4|prev_state.DRAW_TILES   ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
 ; control:comb_4|prev_state.FRAME        ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
-; control:comb_4|prev_state.INC_SPEED    ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
 ; control:comb_4|prev_state.INIT_T1      ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
 ; control:comb_4|prev_state.PAUSE        ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
 ; control:comb_4|prev_state.RESET        ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
 ; control:comb_4|prev_state.CHECK_LEVEL  ; Stuck at GND due to stuck port data_in            ;
-; Total Number of Removed Registers = 41 ;                                                   ;
+; Total Number of Removed Registers = 71 ;                                                   ;
 +----------------------------------------+---------------------------------------------------+
 
 
@@ -400,14 +394,26 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 205   ;
+; Total registers                              ; 203   ;
 ; Number of registers using Synchronous Clear  ; 44    ;
 ; Number of registers using Synchronous Load   ; 37    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 57    ;
+; Number of registers using Clock Enable       ; 46    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; control:comb_4|beat_map[1]             ; 2       ;
+; control:comb_4|beat_map[3]             ; 2       ;
+; control:comb_4|beat_map[8]             ; 2       ;
+; Total number of inverted registers = 3 ;         ;
++----------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -416,20 +422,19 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------+
 ; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |tiles|vga_adapter:VGA|vga_controller:controller|yCounter[8]                                             ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |tiles|control:comb_4|level[0]                                                                           ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |tiles|control:comb_4|lives[0]                                                                           ;
-; 4:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |tiles|control:comb_4|draw_screen[17]                                                                    ;
-; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |tiles|control:comb_4|tile_counter[0]                                                                    ;
+; 4:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |tiles|control:comb_4|draw_screen[4]                                                                     ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |tiles|control:comb_4|tile_counter[5]                                                                    ;
 ; 8:1                ; 3 bits    ; 15 LEs        ; 9 LEs                ; 6 LEs                  ; Yes        ; |tiles|control:comb_4|x[4]                                                                               ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |tiles|control:comb_4|y[4]                                                                               ;
 ; 10:1               ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |tiles|control:comb_4|y[6]                                                                               ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |tiles|control:comb_4|x[1]                                                                               ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|mux_0nb:mux3|result_node[0] ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |tiles|control:comb_4|state                                                                              ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |tiles|control:comb_4|x[0]                                                                               ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|mux_0nb:mux3|result_node[2] ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |tiles|control:comb_4|state                                                                              ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |tiles|control:comb_4|score                                                                              ;
-; 20:1               ; 7 bits    ; 91 LEs        ; 56 LEs               ; 35 LEs                 ; No         ; |tiles|control:comb_4|Selector84                                                                         ;
-; 21:1               ; 2 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; No         ; |tiles|control:comb_4|Selector93                                                                         ;
-; 23:1               ; 2 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |tiles|control:comb_4|Selector92                                                                         ;
+; 20:1               ; 7 bits    ; 91 LEs        ; 56 LEs               ; 35 LEs                 ; No         ; |tiles|control:comb_4|Selector53                                                                         ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; No         ; |tiles|control:comb_4|Selector60                                                                         ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |tiles|control:comb_4|Selector58                                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------+
 
 
@@ -930,29 +935,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: control:comb_4|lpm_divide:Div0 ;
-+------------------------+----------------+---------------------------------------+
-; Parameter Name         ; Value          ; Type                                  ;
-+------------------------+----------------+---------------------------------------+
-; LPM_WIDTHN             ; 28             ; Untyped                               ;
-; LPM_WIDTHD             ; 4              ; Untyped                               ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                               ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                               ;
-; LPM_PIPELINE           ; 0              ; Untyped                               ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                               ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
-; CBXI_PARAMETER         ; lpm_divide_5jm ; Untyped                               ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
-+------------------------+----------------+---------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +------------------------------------------------------------------------------------+
 ; altsyncram Parameter Settings by Entity Instance                                   ;
 +-------------------------------------------+----------------------------------------+
@@ -990,6 +972,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+-------------------------------------------------------+
 
 
++-------------------------------------------------------------+
+; Port Connectivity Checks: "control:comb_4|counter:c_one_hz" ;
++---------------+-------+----------+--------------------------+
+; Port          ; Type  ; Severity ; Details                  ;
++---------------+-------+----------+--------------------------+
+; speed[23..19] ; Input ; Info     ; Stuck at VCC             ;
+; speed[15..12] ; Input ; Info     ; Stuck at VCC             ;
+; speed[6..0]   ; Input ; Info     ; Stuck at VCC             ;
+; speed[27..26] ; Input ; Info     ; Stuck at GND             ;
+; speed[11..7]  ; Input ; Info     ; Stuck at GND             ;
+; speed[25]     ; Input ; Info     ; Stuck at VCC             ;
+; speed[24]     ; Input ; Info     ; Stuck at GND             ;
+; speed[18]     ; Input ; Info     ; Stuck at GND             ;
+; speed[17]     ; Input ; Info     ; Stuck at VCC             ;
+; speed[16]     ; Input ; Info     ; Stuck at GND             ;
++---------------+-------+----------+--------------------------+
+
+
 +----------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "control:comb_4|generator:g"                                                               ;
 +------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -1024,27 +1024,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 101                         ;
-; cycloneiii_ff         ; 205                         ;
-;     ENA               ; 22                          ;
+; cycloneiii_ff         ; 203                         ;
+;     ENA               ; 11                          ;
 ;     ENA SCLR          ; 35                          ;
 ;     SCLR SLD          ; 9                           ;
 ;     SLD               ; 28                          ;
-;     plain             ; 111                         ;
-; cycloneiii_lcell_comb ; 841                         ;
-;     arith             ; 270                         ;
-;         2 data inputs ; 120                         ;
-;         3 data inputs ; 150                         ;
-;     normal            ; 571                         ;
-;         0 data inputs ; 29                          ;
-;         1 data inputs ; 17                          ;
-;         2 data inputs ; 185                         ;
-;         3 data inputs ; 68                          ;
-;         4 data inputs ; 272                         ;
+;     plain             ; 120                         ;
+; cycloneiii_lcell_comb ; 496                         ;
+;     arith             ; 174                         ;
+;         2 data inputs ; 142                         ;
+;         3 data inputs ; 32                          ;
+;     normal            ; 322                         ;
+;         0 data inputs ; 4                           ;
+;         1 data inputs ; 25                          ;
+;         2 data inputs ; 37                          ;
+;         3 data inputs ; 62                          ;
+;         4 data inputs ; 194                         ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 9                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 63.30                       ;
-; Average LUT depth     ; 25.73                       ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 3.77                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1063,7 +1063,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Mar 29 16:48:26 2019
+    Info: Processing started: Mon Apr 01 16:53:19 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tiles -c tiles
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1077,16 +1077,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file /work/c
     Info (12023): Found entity 1: vga_adapter File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/Lab_6/files/vga_adapter/vga_adapter.v Line: 78
 Info (12021): Found 7 design units, including 7 entities, in source file output_files/tiles.v
     Info (12023): Found entity 1: tiles File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 2
-    Info (12023): Found entity 2: control File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 113
-    Info (12023): Found entity 3: check_tile File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 452
-    Info (12023): Found entity 4: generator File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 493
-    Info (12023): Found entity 5: counter File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 519
-    Info (12023): Found entity 6: display_lives File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 537
-    Info (12023): Found entity 7: hex_decoder File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 559
-Critical Warning (10846): Verilog HDL Instantiation warning at tiles.v(92): instance has no name File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 92
+    Info (12023): Found entity 2: control File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 115
+    Info (12023): Found entity 3: check_tile File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 474
+    Info (12023): Found entity 4: generator File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 515
+    Info (12023): Found entity 5: counter File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 541
+    Info (12023): Found entity 6: display_lives File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 560
+    Info (12023): Found entity 7: hex_decoder File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 582
+Critical Warning (10846): Verilog HDL Instantiation warning at tiles.v(94): instance has no name File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 94
 Info (12127): Elaborating entity "tiles" for the top level hierarchy
 Warning (10034): Output port "LEDG[3]" at tiles.v(28) has no driver File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 28
-Warning (10034): Output port "LEDR" at tiles.v(27) has no driver File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
 Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 70
 Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/Lab_6/files/vga_adapter/vga_adapter.v Line: 192
 Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/Lab_6/files/vga_adapter/vga_adapter.v Line: 213
@@ -1135,50 +1134,22 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/Lab_6/files/vga_adapter/vga_adapter.v Line: 252
-Info (12128): Elaborating entity "control" for hierarchy "control:comb_4" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 92
-Warning (10036): Verilog HDL or VHDL warning at tiles.v(136): object "t_c" assigned a value but never read File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 136
-Warning (10230): Verilog HDL assignment warning at tiles.v(216): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 216
-Warning (10230): Verilog HDL assignment warning at tiles.v(223): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 223
-Warning (10230): Verilog HDL assignment warning at tiles.v(237): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 237
-Warning (10230): Verilog HDL assignment warning at tiles.v(257): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 257
-Warning (10230): Verilog HDL assignment warning at tiles.v(416): truncated value with size 32 to match size of target (28) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 416
-Warning (10230): Verilog HDL assignment warning at tiles.v(424): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 424
-Warning (10230): Verilog HDL assignment warning at tiles.v(437): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 437
-Info (12128): Elaborating entity "display_lives" for hierarchy "control:comb_4|display_lives:d" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 152
-Info (12128): Elaborating entity "generator" for hierarchy "control:comb_4|generator:g" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 158
-Info (12128): Elaborating entity "counter" for hierarchy "control:comb_4|counter:c" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 164
-Warning (10230): Verilog HDL assignment warning at tiles.v(534): truncated value with size 32 to match size of target (1) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 534
-Info (12128): Elaborating entity "check_tile" for hierarchy "control:comb_4|check_tile:ct" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 178
-Info (12128): Elaborating entity "hex_decoder" for hierarchy "hex_decoder:h1" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 98
-Info (278001): Inferred 1 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "control:comb_4|Div0" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 416
-Info (12130): Elaborated megafunction instantiation "control:comb_4|lpm_divide:Div0" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 416
-Info (12133): Instantiated megafunction "control:comb_4|lpm_divide:Div0" with the following parameter: File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 416
-    Info (12134): Parameter "LPM_WIDTHN" = "28"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_5jm.tdf
-    Info (12023): Found entity 1: lpm_divide_5jm File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/db/lpm_divide_5jm.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_tlh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_tlh File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/db/sign_div_unsign_tlh.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_e7f.tdf
-    Info (12023): Found entity 1: alt_u_div_e7f File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/db/alt_u_div_e7f.tdf Line: 26
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/db/add_sub_7pc.tdf Line: 22
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/db/add_sub_8pc.tdf Line: 22
+Info (12128): Elaborating entity "control" for hierarchy "control:comb_4" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 94
+Warning (10036): Verilog HDL or VHDL warning at tiles.v(141): object "t_c" assigned a value but never read File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 141
+Warning (10230): Verilog HDL assignment warning at tiles.v(239): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 239
+Warning (10230): Verilog HDL assignment warning at tiles.v(246): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 246
+Warning (10230): Verilog HDL assignment warning at tiles.v(260): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 260
+Warning (10230): Verilog HDL assignment warning at tiles.v(280): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 280
+Warning (10230): Verilog HDL assignment warning at tiles.v(446): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 446
+Warning (10230): Verilog HDL assignment warning at tiles.v(459): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 459
+Info (12128): Elaborating entity "display_lives" for hierarchy "control:comb_4|display_lives:d" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 167
+Info (12128): Elaborating entity "generator" for hierarchy "control:comb_4|generator:g" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 173
+Info (12128): Elaborating entity "counter" for hierarchy "control:comb_4|counter:c" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 179
+Warning (10230): Verilog HDL assignment warning at tiles.v(556): truncated value with size 32 to match size of target (1) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 556
+Info (12128): Elaborating entity "check_tile" for hierarchy "control:comb_4|check_tile:ct" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 199
+Info (12128): Elaborating entity "hex_decoder" for hierarchy "hex_decoder:h1" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 100
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDG[3]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 28
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
     Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
     Warning (13410): Pin "LEDR[10]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
     Warning (13410): Pin "LEDR[11]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
@@ -1187,7 +1158,13 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[14]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
     Warning (13410): Pin "LEDR[15]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
     Warning (13410): Pin "LEDR[16]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[17]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
+    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 26
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 26
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 26
+    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 26
+    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 26
+    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 26
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 26
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 36
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 10 registers lost all their fanouts during netlist optimizations.
@@ -1213,17 +1190,17 @@ Warning (21074): Design contains 18 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[12]" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 24
     Warning (15610): No output dependent on input pin "SW[13]" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 24
     Warning (15610): No output dependent on input pin "SW[14]" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 24
-Info (21057): Implemented 956 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 612 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 78 output pins
-    Info (21061): Implemented 845 logic cells
+    Info (21061): Implemented 501 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 53 warnings
-    Info: Peak virtual memory: 4811 megabytes
-    Info: Processing ended: Fri Mar 29 16:48:40 2019
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:25
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 48 warnings
+    Info: Peak virtual memory: 4816 megabytes
+    Info: Processing ended: Mon Apr 01 16:53:32 2019
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:28
 
 
 +------------------------------------------+

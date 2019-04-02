@@ -76,6 +76,8 @@ module tiles(
         control(
             .clk(CLOCK_50),
             .resetn(resetn),
+				.beat_map_display(LEDR[16:0]),
+				.on_off(LEDR[17]),
             .pause(SW[17]),
             .mode(SW[15]),
             .key0(SW[0]),
@@ -116,6 +118,8 @@ module control(
     input pause,
     input mode,
     input key0, key1, key2, key3,
+	 output [16:0] beat_map_display,
+	 output reg on_off,
 
     output reg [7:0] x, 
     output reg [6:0] y, 
@@ -125,6 +129,7 @@ module control(
 	 output [2:0] out_lives,
 	 output reg [3:0] level);
     
+	 
     reg [4:0] state;
     reg [4:0] prev_state;
     reg [18:0] draw_screen;
@@ -141,8 +146,18 @@ module control(
     reg [7:0] max_score; // max score for a level
     wire p0, p1, p2, p3; // for pressing correct key
     
+    wire [20:0] song;
+
     wire en, counter;
     assign tile = num[4:3]; // random tile number
+	 
+	 reg [8:0] beat_map = 9'b0100001010;
+	 reg [7:0] read_counter = 8'd0;
+	 assign beat_map_display[8:0] = beat_map[8:0];
+	 assign beat_map_display[16:9] = read_counter[7:0];
+	 
+	 wire [7:0] read_counter_next;
+	 
 	 
     display_lives d(
 				.clk(clk),
@@ -162,6 +177,12 @@ module control(
         .speed(speed),
         .frame(counter)
         );
+		wire one_hz;
+	 counter c_one_hz(
+        .clk(clk),
+        .speed(28'd49999999),
+        .frame(one_hz)
+        );
 
     check_tile ct(
         .clk(clk),
@@ -178,12 +199,12 @@ module control(
         );
 
     
-    localparam START = 5'b00000,
-               DRAW_LINE = 5'b00001,
-               RESET = 5'b00010,
-               PAUSE = 5'b00011,
-               DRAW_TILES = 5'b00100,
-               INIT_T1 = 5'b00101,
+    localparam START = 5'd0,
+               DRAW_LINE = 5'd1,
+               RESET = 5'd2,
+               PAUSE = 5'd3,
+               DRAW_TILES = 5'd4,
+               INIT_T1 = 5'd5,
                //INIT_T2 = 5'b00110,
                //INIT_T3 = 5'b00111,
                //INIT_T4 = 5'b01000,
@@ -192,12 +213,14 @@ module control(
                FRAME = 5'b01011,
                ADD_TILE = 5'b01100,
                CHECK_TILE = 5'b01101,
-               INC_SPEED = 5'b01110,
                CHECK_LEVEL = 5'b01111,
                GAME_OVER = 5'b10000,
                WIN = 5'b10001,
-					CLEAR_SCREEN = 5'b10010;
+               CLEAR_SCREEN = 5'b10010;
     
+	 always @(posedge one_hz)
+		on_off <= ~on_off;
+	 
     always @(posedge clk)
     begin
         x <= 8'b0;
@@ -331,7 +354,7 @@ module control(
 						 x <= p_x + tile_counter[3:0];
 						 tile_counter <= tile_counter + 1'b1;
 						 
-						 col <= 3'b000;
+						 col <= 3'b000; // DRAWS BLACK
 					end
 					else begin
 						 tile_counter <= 9'b0;
@@ -358,6 +381,10 @@ module control(
 
         end
         FRAME: begin
+				if (one_hz)
+				begin
+					beat_map <= beat_map >> 1;
+				end
             if (counter)
                 state = ERASE_TILE;
 			end
@@ -381,9 +408,12 @@ module control(
 					 
 			end
         CHECK_TILE: begin
+				
+				
             prev_state <= state;
 				state = CHECK_LEVEL;
-            if (p0 || p1 || p2 || p3) begin
+            // if (p0 || p1 || p2 || p3) begin
+            if (p0) begin
                 score <= score + 1'b1;
                 check_score <= 1'b1;
             end
@@ -408,15 +438,7 @@ module control(
                 state = WIN;
             end
             else
-                state = INC_SPEED;
-        end
-        INC_SPEED: begin
-            max_score <= level * 8'd5;
-            if (score == max_score) begin
-                speed <= speed/10 * 9;
-                level <= level + 1'b1;
-            end
-            state = CLEAR_SCREEN;
+                state = CLEAR_SCREEN;
         end
         WIN: begin
             prev_state <= state;
