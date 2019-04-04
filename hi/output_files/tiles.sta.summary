@@ -3,55 +3,55 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -1.918
-TNS   : -43.265
+Slack : -2.458
+TNS   : -40.258
 
 Type  : Slow 1200mV 85C Model Setup 'control:comb_4|counter:c_one_hz|counter[0]'
-Slack : 0.210
-TNS   : 0.000
+Slack : -0.549
+TNS   : -7.223
 
 Type  : Slow 1200mV 85C Model Setup 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 33.594
+Slack : 32.981
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.287
+Slack : 0.349
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 0.403
+Slack : 0.402
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'control:comb_4|counter:c_one_hz|counter[0]'
-Slack : 0.445
+Slack : 0.408
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'control:comb_4|counter:c_one_hz|counter[0]'
 Slack : -1.285
-TNS   : -1.285
+TNS   : -24.415
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.628
+Slack : 9.623
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 19.708
+Slack : 19.710
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -1.740
-TNS   : -36.510
+Slack : -2.234
+TNS   : -33.007
 
 Type  : Slow 1200mV 0C Model Setup 'control:comb_4|counter:c_one_hz|counter[0]'
-Slack : 0.297
-TNS   : 0.000
+Slack : -0.413
+TNS   : -5.062
 
 Type  : Slow 1200mV 0C Model Setup 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 34.180
+Slack : 33.608
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.294
+Slack : 0.350
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'VGA|mypll|altpll_component|pll|clk[0]'
@@ -59,15 +59,15 @@ Slack : 0.354
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'control:comb_4|counter:c_one_hz|counter[0]'
-Slack : 0.398
+Slack : 0.366
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'control:comb_4|counter:c_one_hz|counter[0]'
 Slack : -1.285
-TNS   : -1.285
+TNS   : -24.415
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.647
+Slack : 9.645
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|pll|clk[0]'
@@ -75,39 +75,39 @@ Slack : 19.710
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -0.665
-TNS   : -11.246
+Slack : -0.855
+TNS   : -13.905
 
 Type  : Fast 1200mV 0C Model Setup 'control:comb_4|counter:c_one_hz|counter[0]'
-Slack : 0.626
+Slack : 0.239
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 36.914
+Slack : 36.551
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.107
+Slack : 0.143
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 0.182
+Slack : 0.181
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'control:comb_4|counter:c_one_hz|counter[0]'
-Slack : 0.208
+Slack : 0.188
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'control:comb_4|counter:c_one_hz|counter[0]'
 Slack : -1.000
-TNS   : -1.000
+TNS   : -19.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.372
+Slack : 9.371
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|pll|clk[0]'
-Slack : 19.754
+Slack : 19.753
 TNS   : 0.000
 
 ------------------------------------------------------------

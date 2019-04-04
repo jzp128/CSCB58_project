@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Mon Apr 01 16:53:32 2019
+Analysis & Synthesis Status : Successful - Wed Apr 03 16:54:56 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : tiles
 Top-level Entity Name : tiles
 Family : Cyclone IV E
-Total logic elements : 499
-    Total combinational functions : 490
-    Dedicated logic registers : 203
-Total registers : 203
+Total logic elements : 449
+    Total combinational functions : 428
+    Dedicated logic registers : 200
+Total registers : 200
 Total pins : 101
 Total virtual pins : 0
 Total memory bits : 57,600

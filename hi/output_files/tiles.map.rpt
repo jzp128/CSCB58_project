@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tiles
-Mon Apr 01 16:53:32 2019
+Wed Apr 03 16:54:56 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -30,14 +30,15 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  22. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
  23. altsyncram Parameter Settings by Entity Instance
  24. altpll Parameter Settings by Entity Instance
- 25. Port Connectivity Checks: "control:comb_4|counter:c_one_hz"
- 26. Port Connectivity Checks: "control:comb_4|generator:g"
- 27. Port Connectivity Checks: "control:comb_4"
- 28. Port Connectivity Checks: "vga_adapter:VGA"
- 29. Post-Synthesis Netlist Statistics for Top Partition
- 30. Elapsed Time Per Partition
- 31. Analysis & Synthesis Messages
- 32. Analysis & Synthesis Suppressed Messages
+ 25. Port Connectivity Checks: "control:comb_4|check_tile:ct"
+ 26. Port Connectivity Checks: "control:comb_4|counter:c_one_hz"
+ 27. Port Connectivity Checks: "control:comb_4|generator:g"
+ 28. Port Connectivity Checks: "control:comb_4"
+ 29. Port Connectivity Checks: "vga_adapter:VGA"
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
+ 33. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -63,15 +64,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Apr 01 16:53:32 2019       ;
+; Analysis & Synthesis Status        ; Successful - Wed Apr 03 16:54:56 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; tiles                                       ;
 ; Top-level Entity Name              ; tiles                                       ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 499                                         ;
-;     Total combinational functions  ; 490                                         ;
-;     Dedicated logic registers      ; 203                                         ;
-; Total registers                    ; 203                                         ;
+; Total logic elements               ; 449                                         ;
+;     Total combinational functions  ; 428                                         ;
+;     Dedicated logic registers      ; 200                                         ;
+; Total registers                    ; 200                                         ;
 ; Total pins                         ; 101                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 57,600                                      ;
@@ -220,20 +221,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 499            ;
+; Estimated Total logic elements              ; 449            ;
 ;                                             ;                ;
-; Total combinational functions               ; 490            ;
+; Total combinational functions               ; 428            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 194            ;
-;     -- 3 input functions                    ; 94             ;
-;     -- <=2 input functions                  ; 202            ;
+;     -- 4 input functions                    ; 154            ;
+;     -- 3 input functions                    ; 76             ;
+;     -- <=2 input functions                  ; 198            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 316            ;
-;     -- arithmetic mode                      ; 174            ;
+;     -- normal mode                          ; 261            ;
+;     -- arithmetic mode                      ; 167            ;
 ;                                             ;                ;
-; Total registers                             ; 203            ;
-;     -- Dedicated logic registers            ; 203            ;
+; Total registers                             ; 200            ;
+;     -- Dedicated logic registers            ; 200            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 101            ;
@@ -245,9 +246,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 182            ;
-; Total fan-out                               ; 2424           ;
-; Average fan-out                             ; 2.68           ;
+; Maximum fan-out                             ; 161            ;
+; Total fan-out                               ; 2222           ;
+; Average fan-out                             ; 2.65           ;
 +---------------------------------------------+----------------+
 
 
@@ -256,13 +257,12 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                   ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |tiles                                                  ; 490 (1)             ; 203 (0)                   ; 57600       ; 0            ; 0       ; 0         ; 101  ; 0            ; |tiles                                                                                                ; tiles                  ; work         ;
-;    |control:comb_4|                                     ; 378 (278)           ; 173 (108)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4                                                                                 ; control                ; work         ;
+; |tiles                                                  ; 428 (1)             ; 200 (0)                   ; 57600       ; 0            ; 0       ; 0         ; 101  ; 0            ; |tiles                                                                                                ; tiles                  ; work         ;
+;    |control:comb_4|                                     ; 316 (221)           ; 170 (110)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4                                                                                 ; control                ; work         ;
 ;       |check_tile:ct|                                   ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|check_tile:ct                                                                   ; check_tile             ; work         ;
 ;       |counter:c_one_hz|                                ; 37 (37)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|counter:c_one_hz                                                                ; counter                ; work         ;
-;       |counter:c|                                       ; 53 (53)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|counter:c                                                                       ; counter                ; work         ;
+;       |counter:c|                                       ; 54 (54)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|counter:c                                                                       ; counter                ; work         ;
 ;       |display_lives:d|                                 ; 3 (3)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|display_lives:d                                                                 ; display_lives          ; work         ;
-;       |generator:g|                                     ; 6 (6)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|control:comb_4|generator:g                                                                     ; generator              ; work         ;
 ;    |hex_decoder:h0|                                     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|hex_decoder:h0                                                                                 ; hex_decoder            ; work         ;
 ;    |hex_decoder:h1|                                     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|hex_decoder:h1                                                                                 ; hex_decoder            ; work         ;
 ;    |vga_adapter:VGA|                                    ; 97 (1)              ; 30 (0)                    ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |tiles|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
@@ -290,103 +290,491 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |tiles|control:comb_4|prev_state                                                                                                                                                                                                                                                                                       ;
-+-------------------------+-------------------------+----------------+----------------------+------------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+-----------------------+------------------+------------------+----------------------+------------------+
-; Name                    ; prev_state.CLEAR_SCREEN ; prev_state.WIN ; prev_state.GAME_OVER ; prev_state.CHECK_LEVEL ; prev_state.CHECK_TILE ; prev_state.FRAME ; prev_state.ERASE_TILE ; prev_state.DRAW_T ; prev_state.INIT_T1 ; prev_state.DRAW_TILES ; prev_state.PAUSE ; prev_state.RESET ; prev_state.DRAW_LINE ; prev_state.START ;
-+-------------------------+-------------------------+----------------+----------------------+------------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+-----------------------+------------------+------------------+----------------------+------------------+
-; prev_state.START        ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 0                ;
-; prev_state.DRAW_LINE    ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 1                    ; 1                ;
-; prev_state.RESET        ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 1                ; 0                    ; 1                ;
-; prev_state.PAUSE        ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 1                ; 0                ; 0                    ; 1                ;
-; prev_state.DRAW_TILES   ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 1                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.INIT_T1      ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 1                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.DRAW_T       ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 1                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.ERASE_TILE   ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 1                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.FRAME        ; 0                       ; 0              ; 0                    ; 0                      ; 0                     ; 1                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.CHECK_TILE   ; 0                       ; 0              ; 0                    ; 0                      ; 1                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.CHECK_LEVEL  ; 0                       ; 0              ; 0                    ; 1                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.GAME_OVER    ; 0                       ; 0              ; 1                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.WIN          ; 0                       ; 1              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-; prev_state.CLEAR_SCREEN ; 1                       ; 0              ; 0                    ; 0                      ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                     ; 0                ; 0                ; 0                    ; 1                ;
-+-------------------------+-------------------------+----------------+----------------------+------------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+-----------------------+------------------+------------------+----------------------+------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |tiles|control:comb_4|prev_state                                                                                                                                                                                                                                      ;
++-------------------------+-------------------------+----------------+----------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+------------------+------------------+----------------------+------------------+
+; Name                    ; prev_state.CLEAR_SCREEN ; prev_state.WIN ; prev_state.GAME_OVER ; prev_state.CHECK_TILE ; prev_state.FRAME ; prev_state.ERASE_TILE ; prev_state.DRAW_T ; prev_state.INIT_T1 ; prev_state.PAUSE ; prev_state.RESET ; prev_state.DRAW_LINE ; prev_state.START ;
++-------------------------+-------------------------+----------------+----------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+------------------+------------------+----------------------+------------------+
+; prev_state.START        ; 0                       ; 0              ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                ; 0                ; 0                    ; 0                ;
+; prev_state.DRAW_LINE    ; 0                       ; 0              ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                ; 0                ; 1                    ; 1                ;
+; prev_state.RESET        ; 0                       ; 0              ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                ; 1                ; 0                    ; 1                ;
+; prev_state.PAUSE        ; 0                       ; 0              ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 1                ; 0                ; 0                    ; 1                ;
+; prev_state.INIT_T1      ; 0                       ; 0              ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 1                  ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.DRAW_T       ; 0                       ; 0              ; 0                    ; 0                     ; 0                ; 0                     ; 1                 ; 0                  ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.ERASE_TILE   ; 0                       ; 0              ; 0                    ; 0                     ; 0                ; 1                     ; 0                 ; 0                  ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.FRAME        ; 0                       ; 0              ; 0                    ; 0                     ; 1                ; 0                     ; 0                 ; 0                  ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.CHECK_TILE   ; 0                       ; 0              ; 0                    ; 1                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.GAME_OVER    ; 0                       ; 0              ; 1                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.WIN          ; 0                       ; 1              ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                ; 0                ; 0                    ; 1                ;
+; prev_state.CLEAR_SCREEN ; 1                       ; 0              ; 0                    ; 0                     ; 0                ; 0                     ; 0                 ; 0                  ; 0                ; 0                ; 0                    ; 1                ;
++-------------------------+-------------------------+----------------+----------------------+-----------------------+------------------+-----------------------+-------------------+--------------------+------------------+------------------+----------------------+------------------+
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |tiles|control:comb_4|state                                                                                                                                                                                                                 ;
-+--------------------+--------------------+-----------+-----------------+-------------------+------------------+-------------+------------------+--------------+---------------+------------------+-------------+-------------+-----------------+-------------+
-; Name               ; state.CLEAR_SCREEN ; state.WIN ; state.GAME_OVER ; state.CHECK_LEVEL ; state.CHECK_TILE ; state.FRAME ; state.ERASE_TILE ; state.DRAW_T ; state.INIT_T1 ; state.DRAW_TILES ; state.PAUSE ; state.RESET ; state.DRAW_LINE ; state.START ;
-+--------------------+--------------------+-----------+-----------------+-------------------+------------------+-------------+------------------+--------------+---------------+------------------+-------------+-------------+-----------------+-------------+
-; state.START        ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 0           ;
-; state.DRAW_LINE    ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 1               ; 1           ;
-; state.RESET        ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 1           ; 0               ; 1           ;
-; state.PAUSE        ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 1           ; 0           ; 0               ; 1           ;
-; state.DRAW_TILES   ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 1                ; 0           ; 0           ; 0               ; 1           ;
-; state.INIT_T1      ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 1             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.DRAW_T       ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 1            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.ERASE_TILE   ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 1                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.FRAME        ; 0                  ; 0         ; 0               ; 0                 ; 0                ; 1           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.CHECK_TILE   ; 0                  ; 0         ; 0               ; 0                 ; 1                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.CHECK_LEVEL  ; 0                  ; 0         ; 0               ; 1                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.GAME_OVER    ; 0                  ; 0         ; 1               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.WIN          ; 0                  ; 1         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-; state.CLEAR_SCREEN ; 1                  ; 0         ; 0               ; 0                 ; 0                ; 0           ; 0                ; 0            ; 0             ; 0                ; 0           ; 0           ; 0               ; 1           ;
-+--------------------+--------------------+-----------+-----------------+-------------------+------------------+-------------+------------------+--------------+---------------+------------------+-------------+-------------+-----------------+-------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |tiles|control:comb_4|state                                                                                                                                                                          ;
++--------------------+--------------------+-----------+-----------------+------------------+-------------+------------------+--------------+---------------+-------------+-------------+-----------------+-------------+
+; Name               ; state.CLEAR_SCREEN ; state.WIN ; state.GAME_OVER ; state.CHECK_TILE ; state.FRAME ; state.ERASE_TILE ; state.DRAW_T ; state.INIT_T1 ; state.PAUSE ; state.RESET ; state.DRAW_LINE ; state.START ;
++--------------------+--------------------+-----------+-----------------+------------------+-------------+------------------+--------------+---------------+-------------+-------------+-----------------+-------------+
+; state.START        ; 0                  ; 0         ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0           ; 0           ; 0               ; 0           ;
+; state.DRAW_LINE    ; 0                  ; 0         ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0           ; 0           ; 1               ; 1           ;
+; state.RESET        ; 0                  ; 0         ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0           ; 1           ; 0               ; 1           ;
+; state.PAUSE        ; 0                  ; 0         ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 1           ; 0           ; 0               ; 1           ;
+; state.INIT_T1      ; 0                  ; 0         ; 0               ; 0                ; 0           ; 0                ; 0            ; 1             ; 0           ; 0           ; 0               ; 1           ;
+; state.DRAW_T       ; 0                  ; 0         ; 0               ; 0                ; 0           ; 0                ; 1            ; 0             ; 0           ; 0           ; 0               ; 1           ;
+; state.ERASE_TILE   ; 0                  ; 0         ; 0               ; 0                ; 0           ; 1                ; 0            ; 0             ; 0           ; 0           ; 0               ; 1           ;
+; state.FRAME        ; 0                  ; 0         ; 0               ; 0                ; 1           ; 0                ; 0            ; 0             ; 0           ; 0           ; 0               ; 1           ;
+; state.CHECK_TILE   ; 0                  ; 0         ; 0               ; 1                ; 0           ; 0                ; 0            ; 0             ; 0           ; 0           ; 0               ; 1           ;
+; state.GAME_OVER    ; 0                  ; 0         ; 1               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0           ; 0           ; 0               ; 1           ;
+; state.WIN          ; 0                  ; 1         ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0           ; 0           ; 0               ; 1           ;
+; state.CLEAR_SCREEN ; 1                  ; 0         ; 0               ; 0                ; 0           ; 0                ; 0            ; 0             ; 0           ; 0           ; 0               ; 1           ;
++--------------------+--------------------+-----------+-----------------+------------------+-------------+------------------+--------------+---------------+-------------+-------------+-----------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                         ;
-+----------------------------------------+---------------------------------------------------+
-; Register name                          ; Reason for Removal                                ;
-+----------------------------------------+---------------------------------------------------+
-; control:comb_4|x_d[0..7]               ; Stuck at GND due to stuck port data_in            ;
-; control:comb_4|p_x[0..7]               ; Stuck at GND due to stuck port data_in            ;
-; control:comb_4|level[0]                ; Stuck at VCC due to stuck port data_in            ;
-; control:comb_4|level[1..3]             ; Stuck at GND due to stuck port data_in            ;
-; control:comb_4|check_tile:ct|p1        ; Stuck at GND due to stuck port data_in            ;
-; control:comb_4|check_tile:ct|p2        ; Stuck at GND due to stuck port data_in            ;
-; control:comb_4|check_tile:ct|p3        ; Stuck at GND due to stuck port data_in            ;
-; control:comb_4|check_score             ; Stuck at VCC due to stuck port data_in            ;
-; control:comb_4|speed[0..5]             ; Stuck at VCC due to stuck port data_in            ;
-; control:comb_4|speed[6..8]             ; Stuck at GND due to stuck port data_in            ;
-; control:comb_4|speed[9]                ; Stuck at VCC due to stuck port data_in            ;
-; control:comb_4|speed[10..13]           ; Stuck at GND due to stuck port data_in            ;
-; control:comb_4|speed[14]               ; Stuck at VCC due to stuck port data_in            ;
-; control:comb_4|speed[15]               ; Stuck at GND due to stuck port data_in            ;
-; control:comb_4|speed[16..19]           ; Stuck at VCC due to stuck port data_in            ;
-; control:comb_4|speed[20..27]           ; Stuck at GND due to stuck port data_in            ;
-; control:comb_4|x[7]                    ; Stuck at GND due to stuck port data_in            ;
-; control:comb_4|prev_state~2            ; Lost fanout                                       ;
-; control:comb_4|prev_state~3            ; Lost fanout                                       ;
-; control:comb_4|prev_state~4            ; Lost fanout                                       ;
-; control:comb_4|prev_state~5            ; Lost fanout                                       ;
-; control:comb_4|prev_state~6            ; Lost fanout                                       ;
-; control:comb_4|state~30                ; Lost fanout                                       ;
-; control:comb_4|state~31                ; Lost fanout                                       ;
-; control:comb_4|state~32                ; Lost fanout                                       ;
-; control:comb_4|state~33                ; Lost fanout                                       ;
-; control:comb_4|state~34                ; Lost fanout                                       ;
-; control:comb_4|prev_state.CLEAR_SCREEN ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
-; control:comb_4|prev_state.DRAW_LINE    ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
-; control:comb_4|prev_state.DRAW_TILES   ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
-; control:comb_4|prev_state.FRAME        ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
-; control:comb_4|prev_state.INIT_T1      ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
-; control:comb_4|prev_state.PAUSE        ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
-; control:comb_4|prev_state.RESET        ; Merged with control:comb_4|prev_state.CHECK_LEVEL ;
-; control:comb_4|prev_state.CHECK_LEVEL  ; Stuck at GND due to stuck port data_in            ;
-; Total Number of Removed Registers = 71 ;                                                   ;
-+----------------------------------------+---------------------------------------------------+
++----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                           ;
++-----------------------------------------+----------------------------------------------------+
+; Register name                           ; Reason for Removal                                 ;
++-----------------------------------------+----------------------------------------------------+
+; control:comb_4|x_d[0..7]                ; Stuck at GND due to stuck port data_in             ;
+; control:comb_4|p_x[0..7]                ; Stuck at GND due to stuck port data_in             ;
+; control:comb_4|level[0]                 ; Stuck at VCC due to stuck port data_in             ;
+; control:comb_4|level[1..3]              ; Stuck at GND due to stuck port data_in             ;
+; control:comb_4|beat_map[18..800]        ; Stuck at GND due to stuck port data_in             ;
+; control:comb_4|lives[0,1]               ; Stuck at VCC due to stuck port data_in             ;
+; control:comb_4|speed[0..5]              ; Stuck at VCC due to stuck port data_in             ;
+; control:comb_4|speed[6..8]              ; Stuck at GND due to stuck port data_in             ;
+; control:comb_4|speed[9]                 ; Stuck at VCC due to stuck port data_in             ;
+; control:comb_4|speed[10..13]            ; Stuck at GND due to stuck port data_in             ;
+; control:comb_4|speed[14]                ; Stuck at VCC due to stuck port data_in             ;
+; control:comb_4|speed[15]                ; Stuck at GND due to stuck port data_in             ;
+; control:comb_4|speed[16..19]            ; Stuck at VCC due to stuck port data_in             ;
+; control:comb_4|speed[20..27]            ; Stuck at GND due to stuck port data_in             ;
+; control:comb_4|x[7]                     ; Stuck at GND due to stuck port data_in             ;
+; control:comb_4|prev_state~2             ; Lost fanout                                        ;
+; control:comb_4|prev_state~3             ; Lost fanout                                        ;
+; control:comb_4|prev_state~4             ; Lost fanout                                        ;
+; control:comb_4|prev_state~5             ; Lost fanout                                        ;
+; control:comb_4|prev_state~6             ; Lost fanout                                        ;
+; control:comb_4|state~15                 ; Lost fanout                                        ;
+; control:comb_4|state~16                 ; Lost fanout                                        ;
+; control:comb_4|state~17                 ; Lost fanout                                        ;
+; control:comb_4|state~18                 ; Lost fanout                                        ;
+; control:comb_4|state~19                 ; Lost fanout                                        ;
+; control:comb_4|state.WIN                ; Merged with control:comb_4|state.GAME_OVER         ;
+; control:comb_4|prev_state.DRAW_LINE     ; Merged with control:comb_4|prev_state.CLEAR_SCREEN ;
+; control:comb_4|prev_state.FRAME         ; Merged with control:comb_4|prev_state.CLEAR_SCREEN ;
+; control:comb_4|prev_state.INIT_T1       ; Merged with control:comb_4|prev_state.CLEAR_SCREEN ;
+; control:comb_4|prev_state.PAUSE         ; Merged with control:comb_4|prev_state.CLEAR_SCREEN ;
+; control:comb_4|prev_state.RESET         ; Merged with control:comb_4|prev_state.CLEAR_SCREEN ;
+; control:comb_4|prev_state.WIN           ; Merged with control:comb_4|prev_state.GAME_OVER    ;
+; control:comb_4|prev_state.CLEAR_SCREEN  ; Stuck at GND due to stuck port data_in             ;
+; control:comb_4|state.CLEAR_SCREEN       ; Stuck at GND due to stuck port data_in             ;
+; Total Number of Removed Registers = 853 ;                                                    ;
++-----------------------------------------+----------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                ;
-+-----------------------+---------------------------+----------------------------------------+
-; Register name         ; Reason for Removal        ; Registers Removed due to This Register ;
-+-----------------------+---------------------------+----------------------------------------+
-; control:comb_4|x_d[0] ; Stuck at GND              ; control:comb_4|x[7]                    ;
-;                       ; due to stuck port data_in ;                                        ;
-+-----------------------+---------------------------+----------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++----------------------------------------+---------------------------+-------------------------------------------------------------+
+; Register name                          ; Reason for Removal        ; Registers Removed due to This Register                      ;
++----------------------------------------+---------------------------+-------------------------------------------------------------+
+; control:comb_4|beat_map[800]           ; Stuck at GND              ; control:comb_4|beat_map[799], control:comb_4|beat_map[798], ;
+;                                        ; due to stuck port data_in ; control:comb_4|beat_map[797], control:comb_4|beat_map[796], ;
+;                                        ;                           ; control:comb_4|beat_map[795], control:comb_4|beat_map[794], ;
+;                                        ;                           ; control:comb_4|beat_map[793], control:comb_4|beat_map[792], ;
+;                                        ;                           ; control:comb_4|beat_map[791], control:comb_4|beat_map[790], ;
+;                                        ;                           ; control:comb_4|beat_map[789], control:comb_4|beat_map[788], ;
+;                                        ;                           ; control:comb_4|beat_map[787], control:comb_4|beat_map[786], ;
+;                                        ;                           ; control:comb_4|beat_map[785], control:comb_4|beat_map[784], ;
+;                                        ;                           ; control:comb_4|beat_map[783], control:comb_4|beat_map[782], ;
+;                                        ;                           ; control:comb_4|beat_map[781], control:comb_4|beat_map[780], ;
+;                                        ;                           ; control:comb_4|beat_map[779], control:comb_4|beat_map[778], ;
+;                                        ;                           ; control:comb_4|beat_map[777], control:comb_4|beat_map[776], ;
+;                                        ;                           ; control:comb_4|beat_map[775], control:comb_4|beat_map[774], ;
+;                                        ;                           ; control:comb_4|beat_map[773], control:comb_4|beat_map[772], ;
+;                                        ;                           ; control:comb_4|beat_map[771], control:comb_4|beat_map[770], ;
+;                                        ;                           ; control:comb_4|beat_map[769], control:comb_4|beat_map[768], ;
+;                                        ;                           ; control:comb_4|beat_map[767], control:comb_4|beat_map[766], ;
+;                                        ;                           ; control:comb_4|beat_map[765], control:comb_4|beat_map[764], ;
+;                                        ;                           ; control:comb_4|beat_map[763], control:comb_4|beat_map[762], ;
+;                                        ;                           ; control:comb_4|beat_map[761], control:comb_4|beat_map[760], ;
+;                                        ;                           ; control:comb_4|beat_map[759], control:comb_4|beat_map[758], ;
+;                                        ;                           ; control:comb_4|beat_map[757], control:comb_4|beat_map[756], ;
+;                                        ;                           ; control:comb_4|beat_map[755], control:comb_4|beat_map[754], ;
+;                                        ;                           ; control:comb_4|beat_map[753], control:comb_4|beat_map[752], ;
+;                                        ;                           ; control:comb_4|beat_map[751], control:comb_4|beat_map[750], ;
+;                                        ;                           ; control:comb_4|beat_map[749], control:comb_4|beat_map[748], ;
+;                                        ;                           ; control:comb_4|beat_map[747], control:comb_4|beat_map[746], ;
+;                                        ;                           ; control:comb_4|beat_map[745], control:comb_4|beat_map[744], ;
+;                                        ;                           ; control:comb_4|beat_map[743], control:comb_4|beat_map[742], ;
+;                                        ;                           ; control:comb_4|beat_map[741], control:comb_4|beat_map[740], ;
+;                                        ;                           ; control:comb_4|beat_map[739], control:comb_4|beat_map[738], ;
+;                                        ;                           ; control:comb_4|beat_map[737], control:comb_4|beat_map[736], ;
+;                                        ;                           ; control:comb_4|beat_map[735], control:comb_4|beat_map[734], ;
+;                                        ;                           ; control:comb_4|beat_map[733], control:comb_4|beat_map[732], ;
+;                                        ;                           ; control:comb_4|beat_map[731], control:comb_4|beat_map[730], ;
+;                                        ;                           ; control:comb_4|beat_map[729], control:comb_4|beat_map[728], ;
+;                                        ;                           ; control:comb_4|beat_map[727], control:comb_4|beat_map[726], ;
+;                                        ;                           ; control:comb_4|beat_map[725], control:comb_4|beat_map[724], ;
+;                                        ;                           ; control:comb_4|beat_map[723], control:comb_4|beat_map[722], ;
+;                                        ;                           ; control:comb_4|beat_map[721], control:comb_4|beat_map[720], ;
+;                                        ;                           ; control:comb_4|beat_map[719], control:comb_4|beat_map[718], ;
+;                                        ;                           ; control:comb_4|beat_map[717], control:comb_4|beat_map[716], ;
+;                                        ;                           ; control:comb_4|beat_map[715], control:comb_4|beat_map[714], ;
+;                                        ;                           ; control:comb_4|beat_map[713], control:comb_4|beat_map[712], ;
+;                                        ;                           ; control:comb_4|beat_map[711], control:comb_4|beat_map[710], ;
+;                                        ;                           ; control:comb_4|beat_map[709], control:comb_4|beat_map[708], ;
+;                                        ;                           ; control:comb_4|beat_map[707], control:comb_4|beat_map[706], ;
+;                                        ;                           ; control:comb_4|beat_map[705], control:comb_4|beat_map[704], ;
+;                                        ;                           ; control:comb_4|beat_map[703], control:comb_4|beat_map[702], ;
+;                                        ;                           ; control:comb_4|beat_map[701], control:comb_4|beat_map[700], ;
+;                                        ;                           ; control:comb_4|beat_map[699], control:comb_4|beat_map[698], ;
+;                                        ;                           ; control:comb_4|beat_map[697], control:comb_4|beat_map[696], ;
+;                                        ;                           ; control:comb_4|beat_map[695], control:comb_4|beat_map[694], ;
+;                                        ;                           ; control:comb_4|beat_map[693], control:comb_4|beat_map[692], ;
+;                                        ;                           ; control:comb_4|beat_map[691], control:comb_4|beat_map[690], ;
+;                                        ;                           ; control:comb_4|beat_map[689], control:comb_4|beat_map[688], ;
+;                                        ;                           ; control:comb_4|beat_map[687], control:comb_4|beat_map[686], ;
+;                                        ;                           ; control:comb_4|beat_map[685], control:comb_4|beat_map[684], ;
+;                                        ;                           ; control:comb_4|beat_map[683], control:comb_4|beat_map[682], ;
+;                                        ;                           ; control:comb_4|beat_map[681], control:comb_4|beat_map[680], ;
+;                                        ;                           ; control:comb_4|beat_map[679], control:comb_4|beat_map[678], ;
+;                                        ;                           ; control:comb_4|beat_map[677], control:comb_4|beat_map[676], ;
+;                                        ;                           ; control:comb_4|beat_map[675], control:comb_4|beat_map[674], ;
+;                                        ;                           ; control:comb_4|beat_map[673], control:comb_4|beat_map[672], ;
+;                                        ;                           ; control:comb_4|beat_map[671], control:comb_4|beat_map[670], ;
+;                                        ;                           ; control:comb_4|beat_map[669], control:comb_4|beat_map[668], ;
+;                                        ;                           ; control:comb_4|beat_map[667], control:comb_4|beat_map[666], ;
+;                                        ;                           ; control:comb_4|beat_map[665], control:comb_4|beat_map[664], ;
+;                                        ;                           ; control:comb_4|beat_map[663], control:comb_4|beat_map[662], ;
+;                                        ;                           ; control:comb_4|beat_map[661], control:comb_4|beat_map[660], ;
+;                                        ;                           ; control:comb_4|beat_map[659], control:comb_4|beat_map[658], ;
+;                                        ;                           ; control:comb_4|beat_map[657], control:comb_4|beat_map[656], ;
+;                                        ;                           ; control:comb_4|beat_map[655], control:comb_4|beat_map[654], ;
+;                                        ;                           ; control:comb_4|beat_map[653], control:comb_4|beat_map[652], ;
+;                                        ;                           ; control:comb_4|beat_map[651], control:comb_4|beat_map[650], ;
+;                                        ;                           ; control:comb_4|beat_map[649], control:comb_4|beat_map[648], ;
+;                                        ;                           ; control:comb_4|beat_map[647], control:comb_4|beat_map[646], ;
+;                                        ;                           ; control:comb_4|beat_map[645], control:comb_4|beat_map[644], ;
+;                                        ;                           ; control:comb_4|beat_map[643], control:comb_4|beat_map[642], ;
+;                                        ;                           ; control:comb_4|beat_map[641], control:comb_4|beat_map[640], ;
+;                                        ;                           ; control:comb_4|beat_map[639], control:comb_4|beat_map[638], ;
+;                                        ;                           ; control:comb_4|beat_map[637], control:comb_4|beat_map[636], ;
+;                                        ;                           ; control:comb_4|beat_map[635], control:comb_4|beat_map[634], ;
+;                                        ;                           ; control:comb_4|beat_map[633], control:comb_4|beat_map[632], ;
+;                                        ;                           ; control:comb_4|beat_map[631], control:comb_4|beat_map[630], ;
+;                                        ;                           ; control:comb_4|beat_map[629], control:comb_4|beat_map[628], ;
+;                                        ;                           ; control:comb_4|beat_map[627], control:comb_4|beat_map[626], ;
+;                                        ;                           ; control:comb_4|beat_map[625], control:comb_4|beat_map[624], ;
+;                                        ;                           ; control:comb_4|beat_map[623], control:comb_4|beat_map[622], ;
+;                                        ;                           ; control:comb_4|beat_map[621], control:comb_4|beat_map[620], ;
+;                                        ;                           ; control:comb_4|beat_map[619], control:comb_4|beat_map[618], ;
+;                                        ;                           ; control:comb_4|beat_map[617], control:comb_4|beat_map[616], ;
+;                                        ;                           ; control:comb_4|beat_map[615], control:comb_4|beat_map[614], ;
+;                                        ;                           ; control:comb_4|beat_map[613], control:comb_4|beat_map[612], ;
+;                                        ;                           ; control:comb_4|beat_map[611], control:comb_4|beat_map[610], ;
+;                                        ;                           ; control:comb_4|beat_map[609], control:comb_4|beat_map[608], ;
+;                                        ;                           ; control:comb_4|beat_map[607], control:comb_4|beat_map[606], ;
+;                                        ;                           ; control:comb_4|beat_map[605], control:comb_4|beat_map[604], ;
+;                                        ;                           ; control:comb_4|beat_map[603], control:comb_4|beat_map[602], ;
+;                                        ;                           ; control:comb_4|beat_map[601], control:comb_4|beat_map[600], ;
+;                                        ;                           ; control:comb_4|beat_map[599], control:comb_4|beat_map[598], ;
+;                                        ;                           ; control:comb_4|beat_map[597], control:comb_4|beat_map[596], ;
+;                                        ;                           ; control:comb_4|beat_map[595], control:comb_4|beat_map[594], ;
+;                                        ;                           ; control:comb_4|beat_map[593], control:comb_4|beat_map[592], ;
+;                                        ;                           ; control:comb_4|beat_map[591], control:comb_4|beat_map[590], ;
+;                                        ;                           ; control:comb_4|beat_map[589], control:comb_4|beat_map[588], ;
+;                                        ;                           ; control:comb_4|beat_map[587], control:comb_4|beat_map[586], ;
+;                                        ;                           ; control:comb_4|beat_map[585], control:comb_4|beat_map[584], ;
+;                                        ;                           ; control:comb_4|beat_map[583], control:comb_4|beat_map[582], ;
+;                                        ;                           ; control:comb_4|beat_map[581], control:comb_4|beat_map[580], ;
+;                                        ;                           ; control:comb_4|beat_map[579], control:comb_4|beat_map[578], ;
+;                                        ;                           ; control:comb_4|beat_map[577], control:comb_4|beat_map[576], ;
+;                                        ;                           ; control:comb_4|beat_map[575], control:comb_4|beat_map[574], ;
+;                                        ;                           ; control:comb_4|beat_map[573], control:comb_4|beat_map[572], ;
+;                                        ;                           ; control:comb_4|beat_map[571], control:comb_4|beat_map[570], ;
+;                                        ;                           ; control:comb_4|beat_map[569], control:comb_4|beat_map[568], ;
+;                                        ;                           ; control:comb_4|beat_map[567], control:comb_4|beat_map[566], ;
+;                                        ;                           ; control:comb_4|beat_map[565], control:comb_4|beat_map[564], ;
+;                                        ;                           ; control:comb_4|beat_map[563], control:comb_4|beat_map[562], ;
+;                                        ;                           ; control:comb_4|beat_map[561], control:comb_4|beat_map[560], ;
+;                                        ;                           ; control:comb_4|beat_map[559], control:comb_4|beat_map[558], ;
+;                                        ;                           ; control:comb_4|beat_map[557], control:comb_4|beat_map[556], ;
+;                                        ;                           ; control:comb_4|beat_map[555], control:comb_4|beat_map[554], ;
+;                                        ;                           ; control:comb_4|beat_map[553], control:comb_4|beat_map[552], ;
+;                                        ;                           ; control:comb_4|beat_map[551], control:comb_4|beat_map[550], ;
+;                                        ;                           ; control:comb_4|beat_map[549], control:comb_4|beat_map[548], ;
+;                                        ;                           ; control:comb_4|beat_map[547], control:comb_4|beat_map[546], ;
+;                                        ;                           ; control:comb_4|beat_map[545], control:comb_4|beat_map[544], ;
+;                                        ;                           ; control:comb_4|beat_map[543], control:comb_4|beat_map[542], ;
+;                                        ;                           ; control:comb_4|beat_map[541], control:comb_4|beat_map[540], ;
+;                                        ;                           ; control:comb_4|beat_map[539], control:comb_4|beat_map[538], ;
+;                                        ;                           ; control:comb_4|beat_map[537], control:comb_4|beat_map[536], ;
+;                                        ;                           ; control:comb_4|beat_map[535], control:comb_4|beat_map[534], ;
+;                                        ;                           ; control:comb_4|beat_map[533], control:comb_4|beat_map[532], ;
+;                                        ;                           ; control:comb_4|beat_map[531], control:comb_4|beat_map[530], ;
+;                                        ;                           ; control:comb_4|beat_map[529], control:comb_4|beat_map[528], ;
+;                                        ;                           ; control:comb_4|beat_map[527], control:comb_4|beat_map[526], ;
+;                                        ;                           ; control:comb_4|beat_map[525], control:comb_4|beat_map[524], ;
+;                                        ;                           ; control:comb_4|beat_map[523], control:comb_4|beat_map[522], ;
+;                                        ;                           ; control:comb_4|beat_map[521], control:comb_4|beat_map[520], ;
+;                                        ;                           ; control:comb_4|beat_map[519], control:comb_4|beat_map[518], ;
+;                                        ;                           ; control:comb_4|beat_map[517], control:comb_4|beat_map[516], ;
+;                                        ;                           ; control:comb_4|beat_map[515], control:comb_4|beat_map[514], ;
+;                                        ;                           ; control:comb_4|beat_map[513], control:comb_4|beat_map[512], ;
+;                                        ;                           ; control:comb_4|beat_map[511], control:comb_4|beat_map[510], ;
+;                                        ;                           ; control:comb_4|beat_map[509], control:comb_4|beat_map[508], ;
+;                                        ;                           ; control:comb_4|beat_map[507], control:comb_4|beat_map[506], ;
+;                                        ;                           ; control:comb_4|beat_map[505], control:comb_4|beat_map[504], ;
+;                                        ;                           ; control:comb_4|beat_map[503], control:comb_4|beat_map[502], ;
+;                                        ;                           ; control:comb_4|beat_map[501], control:comb_4|beat_map[500], ;
+;                                        ;                           ; control:comb_4|beat_map[499], control:comb_4|beat_map[498], ;
+;                                        ;                           ; control:comb_4|beat_map[497], control:comb_4|beat_map[496], ;
+;                                        ;                           ; control:comb_4|beat_map[495], control:comb_4|beat_map[494], ;
+;                                        ;                           ; control:comb_4|beat_map[493], control:comb_4|beat_map[492], ;
+;                                        ;                           ; control:comb_4|beat_map[491], control:comb_4|beat_map[490], ;
+;                                        ;                           ; control:comb_4|beat_map[489], control:comb_4|beat_map[488], ;
+;                                        ;                           ; control:comb_4|beat_map[487], control:comb_4|beat_map[486], ;
+;                                        ;                           ; control:comb_4|beat_map[485], control:comb_4|beat_map[484], ;
+;                                        ;                           ; control:comb_4|beat_map[483], control:comb_4|beat_map[482], ;
+;                                        ;                           ; control:comb_4|beat_map[481], control:comb_4|beat_map[480], ;
+;                                        ;                           ; control:comb_4|beat_map[479], control:comb_4|beat_map[478], ;
+;                                        ;                           ; control:comb_4|beat_map[477], control:comb_4|beat_map[476], ;
+;                                        ;                           ; control:comb_4|beat_map[475], control:comb_4|beat_map[474], ;
+;                                        ;                           ; control:comb_4|beat_map[473], control:comb_4|beat_map[472], ;
+;                                        ;                           ; control:comb_4|beat_map[471], control:comb_4|beat_map[470], ;
+;                                        ;                           ; control:comb_4|beat_map[469], control:comb_4|beat_map[468], ;
+;                                        ;                           ; control:comb_4|beat_map[467], control:comb_4|beat_map[466], ;
+;                                        ;                           ; control:comb_4|beat_map[465], control:comb_4|beat_map[464], ;
+;                                        ;                           ; control:comb_4|beat_map[463], control:comb_4|beat_map[462], ;
+;                                        ;                           ; control:comb_4|beat_map[461], control:comb_4|beat_map[460], ;
+;                                        ;                           ; control:comb_4|beat_map[459], control:comb_4|beat_map[458], ;
+;                                        ;                           ; control:comb_4|beat_map[457], control:comb_4|beat_map[456], ;
+;                                        ;                           ; control:comb_4|beat_map[455], control:comb_4|beat_map[454], ;
+;                                        ;                           ; control:comb_4|beat_map[453], control:comb_4|beat_map[452], ;
+;                                        ;                           ; control:comb_4|beat_map[451], control:comb_4|beat_map[450], ;
+;                                        ;                           ; control:comb_4|beat_map[449], control:comb_4|beat_map[448], ;
+;                                        ;                           ; control:comb_4|beat_map[447], control:comb_4|beat_map[446], ;
+;                                        ;                           ; control:comb_4|beat_map[445], control:comb_4|beat_map[444], ;
+;                                        ;                           ; control:comb_4|beat_map[443], control:comb_4|beat_map[442], ;
+;                                        ;                           ; control:comb_4|beat_map[441], control:comb_4|beat_map[440], ;
+;                                        ;                           ; control:comb_4|beat_map[439], control:comb_4|beat_map[438], ;
+;                                        ;                           ; control:comb_4|beat_map[437], control:comb_4|beat_map[436], ;
+;                                        ;                           ; control:comb_4|beat_map[435], control:comb_4|beat_map[434], ;
+;                                        ;                           ; control:comb_4|beat_map[433], control:comb_4|beat_map[432], ;
+;                                        ;                           ; control:comb_4|beat_map[431], control:comb_4|beat_map[430], ;
+;                                        ;                           ; control:comb_4|beat_map[429], control:comb_4|beat_map[428], ;
+;                                        ;                           ; control:comb_4|beat_map[427], control:comb_4|beat_map[426], ;
+;                                        ;                           ; control:comb_4|beat_map[425], control:comb_4|beat_map[424], ;
+;                                        ;                           ; control:comb_4|beat_map[423], control:comb_4|beat_map[422], ;
+;                                        ;                           ; control:comb_4|beat_map[421], control:comb_4|beat_map[420], ;
+;                                        ;                           ; control:comb_4|beat_map[419], control:comb_4|beat_map[418], ;
+;                                        ;                           ; control:comb_4|beat_map[417], control:comb_4|beat_map[416], ;
+;                                        ;                           ; control:comb_4|beat_map[415], control:comb_4|beat_map[414], ;
+;                                        ;                           ; control:comb_4|beat_map[413], control:comb_4|beat_map[412], ;
+;                                        ;                           ; control:comb_4|beat_map[411], control:comb_4|beat_map[410], ;
+;                                        ;                           ; control:comb_4|beat_map[409], control:comb_4|beat_map[408], ;
+;                                        ;                           ; control:comb_4|beat_map[407], control:comb_4|beat_map[406], ;
+;                                        ;                           ; control:comb_4|beat_map[405], control:comb_4|beat_map[404], ;
+;                                        ;                           ; control:comb_4|beat_map[403], control:comb_4|beat_map[402], ;
+;                                        ;                           ; control:comb_4|beat_map[401], control:comb_4|beat_map[400], ;
+;                                        ;                           ; control:comb_4|beat_map[399], control:comb_4|beat_map[398], ;
+;                                        ;                           ; control:comb_4|beat_map[397], control:comb_4|beat_map[396], ;
+;                                        ;                           ; control:comb_4|beat_map[395], control:comb_4|beat_map[394], ;
+;                                        ;                           ; control:comb_4|beat_map[393], control:comb_4|beat_map[392], ;
+;                                        ;                           ; control:comb_4|beat_map[391], control:comb_4|beat_map[390], ;
+;                                        ;                           ; control:comb_4|beat_map[389], control:comb_4|beat_map[388], ;
+;                                        ;                           ; control:comb_4|beat_map[387], control:comb_4|beat_map[386], ;
+;                                        ;                           ; control:comb_4|beat_map[385], control:comb_4|beat_map[384], ;
+;                                        ;                           ; control:comb_4|beat_map[383], control:comb_4|beat_map[382], ;
+;                                        ;                           ; control:comb_4|beat_map[381], control:comb_4|beat_map[380], ;
+;                                        ;                           ; control:comb_4|beat_map[379], control:comb_4|beat_map[378], ;
+;                                        ;                           ; control:comb_4|beat_map[377], control:comb_4|beat_map[376], ;
+;                                        ;                           ; control:comb_4|beat_map[375], control:comb_4|beat_map[374], ;
+;                                        ;                           ; control:comb_4|beat_map[373], control:comb_4|beat_map[372], ;
+;                                        ;                           ; control:comb_4|beat_map[371], control:comb_4|beat_map[370], ;
+;                                        ;                           ; control:comb_4|beat_map[369], control:comb_4|beat_map[368], ;
+;                                        ;                           ; control:comb_4|beat_map[367], control:comb_4|beat_map[366], ;
+;                                        ;                           ; control:comb_4|beat_map[365], control:comb_4|beat_map[364], ;
+;                                        ;                           ; control:comb_4|beat_map[363], control:comb_4|beat_map[362], ;
+;                                        ;                           ; control:comb_4|beat_map[361], control:comb_4|beat_map[360], ;
+;                                        ;                           ; control:comb_4|beat_map[359], control:comb_4|beat_map[358], ;
+;                                        ;                           ; control:comb_4|beat_map[357], control:comb_4|beat_map[356], ;
+;                                        ;                           ; control:comb_4|beat_map[355], control:comb_4|beat_map[354], ;
+;                                        ;                           ; control:comb_4|beat_map[353], control:comb_4|beat_map[352], ;
+;                                        ;                           ; control:comb_4|beat_map[351], control:comb_4|beat_map[350], ;
+;                                        ;                           ; control:comb_4|beat_map[349], control:comb_4|beat_map[348], ;
+;                                        ;                           ; control:comb_4|beat_map[347], control:comb_4|beat_map[346], ;
+;                                        ;                           ; control:comb_4|beat_map[345], control:comb_4|beat_map[344], ;
+;                                        ;                           ; control:comb_4|beat_map[343], control:comb_4|beat_map[342], ;
+;                                        ;                           ; control:comb_4|beat_map[341], control:comb_4|beat_map[340], ;
+;                                        ;                           ; control:comb_4|beat_map[339], control:comb_4|beat_map[338], ;
+;                                        ;                           ; control:comb_4|beat_map[337], control:comb_4|beat_map[336], ;
+;                                        ;                           ; control:comb_4|beat_map[335], control:comb_4|beat_map[334], ;
+;                                        ;                           ; control:comb_4|beat_map[333], control:comb_4|beat_map[332], ;
+;                                        ;                           ; control:comb_4|beat_map[331], control:comb_4|beat_map[330], ;
+;                                        ;                           ; control:comb_4|beat_map[329], control:comb_4|beat_map[328], ;
+;                                        ;                           ; control:comb_4|beat_map[327], control:comb_4|beat_map[326], ;
+;                                        ;                           ; control:comb_4|beat_map[325], control:comb_4|beat_map[324], ;
+;                                        ;                           ; control:comb_4|beat_map[323], control:comb_4|beat_map[322], ;
+;                                        ;                           ; control:comb_4|beat_map[321], control:comb_4|beat_map[320], ;
+;                                        ;                           ; control:comb_4|beat_map[319], control:comb_4|beat_map[318], ;
+;                                        ;                           ; control:comb_4|beat_map[317], control:comb_4|beat_map[316], ;
+;                                        ;                           ; control:comb_4|beat_map[315], control:comb_4|beat_map[314], ;
+;                                        ;                           ; control:comb_4|beat_map[313], control:comb_4|beat_map[312], ;
+;                                        ;                           ; control:comb_4|beat_map[311], control:comb_4|beat_map[310], ;
+;                                        ;                           ; control:comb_4|beat_map[309], control:comb_4|beat_map[308], ;
+;                                        ;                           ; control:comb_4|beat_map[307], control:comb_4|beat_map[306], ;
+;                                        ;                           ; control:comb_4|beat_map[305], control:comb_4|beat_map[304], ;
+;                                        ;                           ; control:comb_4|beat_map[303], control:comb_4|beat_map[302], ;
+;                                        ;                           ; control:comb_4|beat_map[301], control:comb_4|beat_map[300], ;
+;                                        ;                           ; control:comb_4|beat_map[299], control:comb_4|beat_map[298], ;
+;                                        ;                           ; control:comb_4|beat_map[297], control:comb_4|beat_map[296], ;
+;                                        ;                           ; control:comb_4|beat_map[295], control:comb_4|beat_map[294], ;
+;                                        ;                           ; control:comb_4|beat_map[293], control:comb_4|beat_map[292], ;
+;                                        ;                           ; control:comb_4|beat_map[291], control:comb_4|beat_map[290], ;
+;                                        ;                           ; control:comb_4|beat_map[289], control:comb_4|beat_map[288], ;
+;                                        ;                           ; control:comb_4|beat_map[287], control:comb_4|beat_map[286], ;
+;                                        ;                           ; control:comb_4|beat_map[285], control:comb_4|beat_map[284], ;
+;                                        ;                           ; control:comb_4|beat_map[283], control:comb_4|beat_map[282], ;
+;                                        ;                           ; control:comb_4|beat_map[281], control:comb_4|beat_map[280], ;
+;                                        ;                           ; control:comb_4|beat_map[279], control:comb_4|beat_map[278], ;
+;                                        ;                           ; control:comb_4|beat_map[277], control:comb_4|beat_map[276], ;
+;                                        ;                           ; control:comb_4|beat_map[275], control:comb_4|beat_map[274], ;
+;                                        ;                           ; control:comb_4|beat_map[273], control:comb_4|beat_map[272], ;
+;                                        ;                           ; control:comb_4|beat_map[271], control:comb_4|beat_map[270], ;
+;                                        ;                           ; control:comb_4|beat_map[269], control:comb_4|beat_map[268], ;
+;                                        ;                           ; control:comb_4|beat_map[267], control:comb_4|beat_map[266], ;
+;                                        ;                           ; control:comb_4|beat_map[265], control:comb_4|beat_map[264], ;
+;                                        ;                           ; control:comb_4|beat_map[263], control:comb_4|beat_map[262], ;
+;                                        ;                           ; control:comb_4|beat_map[261], control:comb_4|beat_map[260], ;
+;                                        ;                           ; control:comb_4|beat_map[259], control:comb_4|beat_map[258], ;
+;                                        ;                           ; control:comb_4|beat_map[257], control:comb_4|beat_map[256], ;
+;                                        ;                           ; control:comb_4|beat_map[255], control:comb_4|beat_map[254], ;
+;                                        ;                           ; control:comb_4|beat_map[253], control:comb_4|beat_map[252], ;
+;                                        ;                           ; control:comb_4|beat_map[251], control:comb_4|beat_map[250], ;
+;                                        ;                           ; control:comb_4|beat_map[249], control:comb_4|beat_map[248], ;
+;                                        ;                           ; control:comb_4|beat_map[247], control:comb_4|beat_map[246], ;
+;                                        ;                           ; control:comb_4|beat_map[245], control:comb_4|beat_map[244], ;
+;                                        ;                           ; control:comb_4|beat_map[243], control:comb_4|beat_map[242], ;
+;                                        ;                           ; control:comb_4|beat_map[241], control:comb_4|beat_map[240], ;
+;                                        ;                           ; control:comb_4|beat_map[239], control:comb_4|beat_map[238], ;
+;                                        ;                           ; control:comb_4|beat_map[237], control:comb_4|beat_map[236], ;
+;                                        ;                           ; control:comb_4|beat_map[235], control:comb_4|beat_map[234], ;
+;                                        ;                           ; control:comb_4|beat_map[233], control:comb_4|beat_map[232], ;
+;                                        ;                           ; control:comb_4|beat_map[231], control:comb_4|beat_map[230], ;
+;                                        ;                           ; control:comb_4|beat_map[229], control:comb_4|beat_map[228], ;
+;                                        ;                           ; control:comb_4|beat_map[227], control:comb_4|beat_map[226], ;
+;                                        ;                           ; control:comb_4|beat_map[225], control:comb_4|beat_map[224], ;
+;                                        ;                           ; control:comb_4|beat_map[223], control:comb_4|beat_map[222], ;
+;                                        ;                           ; control:comb_4|beat_map[221], control:comb_4|beat_map[220], ;
+;                                        ;                           ; control:comb_4|beat_map[219], control:comb_4|beat_map[218], ;
+;                                        ;                           ; control:comb_4|beat_map[217], control:comb_4|beat_map[216], ;
+;                                        ;                           ; control:comb_4|beat_map[215], control:comb_4|beat_map[214], ;
+;                                        ;                           ; control:comb_4|beat_map[213], control:comb_4|beat_map[212], ;
+;                                        ;                           ; control:comb_4|beat_map[211], control:comb_4|beat_map[210], ;
+;                                        ;                           ; control:comb_4|beat_map[209], control:comb_4|beat_map[208], ;
+;                                        ;                           ; control:comb_4|beat_map[207], control:comb_4|beat_map[206], ;
+;                                        ;                           ; control:comb_4|beat_map[205], control:comb_4|beat_map[204], ;
+;                                        ;                           ; control:comb_4|beat_map[203], control:comb_4|beat_map[202], ;
+;                                        ;                           ; control:comb_4|beat_map[201], control:comb_4|beat_map[200], ;
+;                                        ;                           ; control:comb_4|beat_map[199], control:comb_4|beat_map[198], ;
+;                                        ;                           ; control:comb_4|beat_map[197], control:comb_4|beat_map[196], ;
+;                                        ;                           ; control:comb_4|beat_map[195], control:comb_4|beat_map[194], ;
+;                                        ;                           ; control:comb_4|beat_map[193], control:comb_4|beat_map[192], ;
+;                                        ;                           ; control:comb_4|beat_map[191], control:comb_4|beat_map[190], ;
+;                                        ;                           ; control:comb_4|beat_map[189], control:comb_4|beat_map[188], ;
+;                                        ;                           ; control:comb_4|beat_map[187], control:comb_4|beat_map[186], ;
+;                                        ;                           ; control:comb_4|beat_map[185], control:comb_4|beat_map[184], ;
+;                                        ;                           ; control:comb_4|beat_map[183], control:comb_4|beat_map[182], ;
+;                                        ;                           ; control:comb_4|beat_map[181], control:comb_4|beat_map[180], ;
+;                                        ;                           ; control:comb_4|beat_map[179], control:comb_4|beat_map[178], ;
+;                                        ;                           ; control:comb_4|beat_map[177], control:comb_4|beat_map[176], ;
+;                                        ;                           ; control:comb_4|beat_map[175], control:comb_4|beat_map[174], ;
+;                                        ;                           ; control:comb_4|beat_map[173], control:comb_4|beat_map[172], ;
+;                                        ;                           ; control:comb_4|beat_map[171], control:comb_4|beat_map[170], ;
+;                                        ;                           ; control:comb_4|beat_map[169], control:comb_4|beat_map[168], ;
+;                                        ;                           ; control:comb_4|beat_map[167], control:comb_4|beat_map[166], ;
+;                                        ;                           ; control:comb_4|beat_map[165], control:comb_4|beat_map[164], ;
+;                                        ;                           ; control:comb_4|beat_map[163], control:comb_4|beat_map[162], ;
+;                                        ;                           ; control:comb_4|beat_map[161], control:comb_4|beat_map[160], ;
+;                                        ;                           ; control:comb_4|beat_map[159], control:comb_4|beat_map[158], ;
+;                                        ;                           ; control:comb_4|beat_map[157], control:comb_4|beat_map[156], ;
+;                                        ;                           ; control:comb_4|beat_map[155], control:comb_4|beat_map[154], ;
+;                                        ;                           ; control:comb_4|beat_map[153], control:comb_4|beat_map[152], ;
+;                                        ;                           ; control:comb_4|beat_map[151], control:comb_4|beat_map[150], ;
+;                                        ;                           ; control:comb_4|beat_map[149], control:comb_4|beat_map[148], ;
+;                                        ;                           ; control:comb_4|beat_map[147], control:comb_4|beat_map[146], ;
+;                                        ;                           ; control:comb_4|beat_map[145], control:comb_4|beat_map[144], ;
+;                                        ;                           ; control:comb_4|beat_map[143], control:comb_4|beat_map[142], ;
+;                                        ;                           ; control:comb_4|beat_map[141], control:comb_4|beat_map[140], ;
+;                                        ;                           ; control:comb_4|beat_map[139], control:comb_4|beat_map[138], ;
+;                                        ;                           ; control:comb_4|beat_map[137], control:comb_4|beat_map[136], ;
+;                                        ;                           ; control:comb_4|beat_map[135], control:comb_4|beat_map[134], ;
+;                                        ;                           ; control:comb_4|beat_map[133], control:comb_4|beat_map[132], ;
+;                                        ;                           ; control:comb_4|beat_map[131], control:comb_4|beat_map[130], ;
+;                                        ;                           ; control:comb_4|beat_map[129], control:comb_4|beat_map[128], ;
+;                                        ;                           ; control:comb_4|beat_map[127], control:comb_4|beat_map[126], ;
+;                                        ;                           ; control:comb_4|beat_map[125], control:comb_4|beat_map[124], ;
+;                                        ;                           ; control:comb_4|beat_map[123], control:comb_4|beat_map[122], ;
+;                                        ;                           ; control:comb_4|beat_map[121], control:comb_4|beat_map[120], ;
+;                                        ;                           ; control:comb_4|beat_map[119], control:comb_4|beat_map[118], ;
+;                                        ;                           ; control:comb_4|beat_map[117], control:comb_4|beat_map[116], ;
+;                                        ;                           ; control:comb_4|beat_map[115], control:comb_4|beat_map[114], ;
+;                                        ;                           ; control:comb_4|beat_map[113], control:comb_4|beat_map[112], ;
+;                                        ;                           ; control:comb_4|beat_map[111], control:comb_4|beat_map[110], ;
+;                                        ;                           ; control:comb_4|beat_map[109], control:comb_4|beat_map[108], ;
+;                                        ;                           ; control:comb_4|beat_map[107], control:comb_4|beat_map[106], ;
+;                                        ;                           ; control:comb_4|beat_map[105], control:comb_4|beat_map[104], ;
+;                                        ;                           ; control:comb_4|beat_map[103], control:comb_4|beat_map[102], ;
+;                                        ;                           ; control:comb_4|beat_map[101], control:comb_4|beat_map[100], ;
+;                                        ;                           ; control:comb_4|beat_map[99], control:comb_4|beat_map[98],   ;
+;                                        ;                           ; control:comb_4|beat_map[97], control:comb_4|beat_map[96],   ;
+;                                        ;                           ; control:comb_4|beat_map[95], control:comb_4|beat_map[94],   ;
+;                                        ;                           ; control:comb_4|beat_map[93], control:comb_4|beat_map[92],   ;
+;                                        ;                           ; control:comb_4|beat_map[91], control:comb_4|beat_map[90],   ;
+;                                        ;                           ; control:comb_4|beat_map[89], control:comb_4|beat_map[88],   ;
+;                                        ;                           ; control:comb_4|beat_map[87], control:comb_4|beat_map[86],   ;
+;                                        ;                           ; control:comb_4|beat_map[85], control:comb_4|beat_map[84],   ;
+;                                        ;                           ; control:comb_4|beat_map[83], control:comb_4|beat_map[82],   ;
+;                                        ;                           ; control:comb_4|beat_map[81], control:comb_4|beat_map[80],   ;
+;                                        ;                           ; control:comb_4|beat_map[79], control:comb_4|beat_map[78],   ;
+;                                        ;                           ; control:comb_4|beat_map[77], control:comb_4|beat_map[76],   ;
+;                                        ;                           ; control:comb_4|beat_map[75], control:comb_4|beat_map[74],   ;
+;                                        ;                           ; control:comb_4|beat_map[73], control:comb_4|beat_map[72],   ;
+;                                        ;                           ; control:comb_4|beat_map[71], control:comb_4|beat_map[70],   ;
+;                                        ;                           ; control:comb_4|beat_map[69], control:comb_4|beat_map[68],   ;
+;                                        ;                           ; control:comb_4|beat_map[67], control:comb_4|beat_map[66],   ;
+;                                        ;                           ; control:comb_4|beat_map[65], control:comb_4|beat_map[64],   ;
+;                                        ;                           ; control:comb_4|beat_map[63], control:comb_4|beat_map[62],   ;
+;                                        ;                           ; control:comb_4|beat_map[61], control:comb_4|beat_map[60],   ;
+;                                        ;                           ; control:comb_4|beat_map[59], control:comb_4|beat_map[58],   ;
+;                                        ;                           ; control:comb_4|beat_map[57], control:comb_4|beat_map[56],   ;
+;                                        ;                           ; control:comb_4|beat_map[55], control:comb_4|beat_map[54],   ;
+;                                        ;                           ; control:comb_4|beat_map[53], control:comb_4|beat_map[52],   ;
+;                                        ;                           ; control:comb_4|beat_map[51], control:comb_4|beat_map[50],   ;
+;                                        ;                           ; control:comb_4|beat_map[49], control:comb_4|beat_map[48],   ;
+;                                        ;                           ; control:comb_4|beat_map[47], control:comb_4|beat_map[46],   ;
+;                                        ;                           ; control:comb_4|beat_map[45], control:comb_4|beat_map[44],   ;
+;                                        ;                           ; control:comb_4|beat_map[43], control:comb_4|beat_map[42],   ;
+;                                        ;                           ; control:comb_4|beat_map[41], control:comb_4|beat_map[40],   ;
+;                                        ;                           ; control:comb_4|beat_map[39], control:comb_4|beat_map[38],   ;
+;                                        ;                           ; control:comb_4|beat_map[37], control:comb_4|beat_map[36],   ;
+;                                        ;                           ; control:comb_4|beat_map[35], control:comb_4|beat_map[34],   ;
+;                                        ;                           ; control:comb_4|beat_map[33], control:comb_4|beat_map[32],   ;
+;                                        ;                           ; control:comb_4|beat_map[31], control:comb_4|beat_map[30],   ;
+;                                        ;                           ; control:comb_4|beat_map[29], control:comb_4|beat_map[28],   ;
+;                                        ;                           ; control:comb_4|beat_map[27], control:comb_4|beat_map[26],   ;
+;                                        ;                           ; control:comb_4|beat_map[25], control:comb_4|beat_map[24],   ;
+;                                        ;                           ; control:comb_4|beat_map[23], control:comb_4|beat_map[22],   ;
+;                                        ;                           ; control:comb_4|beat_map[21], control:comb_4|beat_map[20],   ;
+;                                        ;                           ; control:comb_4|beat_map[19], control:comb_4|beat_map[18]    ;
+; control:comb_4|x_d[0]                  ; Stuck at GND              ; control:comb_4|x[7]                                         ;
+;                                        ; due to stuck port data_in ;                                                             ;
+; control:comb_4|prev_state.CLEAR_SCREEN ; Stuck at GND              ; control:comb_4|state.CLEAR_SCREEN                           ;
+;                                        ; due to stuck port data_in ;                                                             ;
++----------------------------------------+---------------------------+-------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -394,12 +782,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 203   ;
+; Total registers                              ; 200   ;
 ; Number of registers using Synchronous Clear  ; 44    ;
 ; Number of registers using Synchronous Load   ; 37    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 46    ;
+; Number of registers using Clock Enable       ; 67    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -409,10 +797,9 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; control:comb_4|beat_map[1]             ; 2       ;
-; control:comb_4|beat_map[3]             ; 2       ;
 ; control:comb_4|beat_map[8]             ; 2       ;
-; Total number of inverted registers = 3 ;         ;
+; control:comb_4|beat_map[17]            ; 1       ;
+; Total number of inverted registers = 2 ;         ;
 +----------------------------------------+---------+
 
 
@@ -421,20 +808,21 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |tiles|vga_adapter:VGA|vga_controller:controller|yCounter[8]                                             ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |tiles|control:comb_4|lives[0]                                                                           ;
-; 4:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |tiles|control:comb_4|draw_screen[4]                                                                     ;
-; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |tiles|control:comb_4|tile_counter[5]                                                                    ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 9 LEs                ; 6 LEs                  ; Yes        ; |tiles|control:comb_4|x[4]                                                                               ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |tiles|control:comb_4|y[4]                                                                               ;
-; 10:1               ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |tiles|control:comb_4|y[6]                                                                               ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |tiles|control:comb_4|x[0]                                                                               ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |tiles|vga_adapter:VGA|vga_controller:controller|yCounter[6]                                             ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |tiles|control:comb_4|p_y[2]                                                                             ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |tiles|control:comb_4|y_d[0]                                                                             ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tiles|control:comb_4|p_y[6]                                                                             ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |tiles|control:comb_4|y_d[3]                                                                             ;
+; 4:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |tiles|control:comb_4|draw_screen[13]                                                                    ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |tiles|control:comb_4|tile_counter[7]                                                                    ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 9 LEs                ; 6 LEs                  ; Yes        ; |tiles|control:comb_4|x[6]                                                                               ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |tiles|control:comb_4|y[0]                                                                               ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 20 LEs               ; 15 LEs                 ; Yes        ; |tiles|control:comb_4|y[3]                                                                               ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |tiles|control:comb_4|x[3]                                                                               ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |tiles|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|mux_0nb:mux3|result_node[2] ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |tiles|control:comb_4|state                                                                              ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |tiles|control:comb_4|score                                                                              ;
-; 20:1               ; 7 bits    ; 91 LEs        ; 56 LEs               ; 35 LEs                 ; No         ; |tiles|control:comb_4|Selector53                                                                         ;
-; 21:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; No         ; |tiles|control:comb_4|Selector60                                                                         ;
-; 23:1               ; 2 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |tiles|control:comb_4|Selector58                                                                         ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |tiles|control:comb_4|state                                                                              ;
+; 18:1               ; 7 bits    ; 84 LEs        ; 42 LEs               ; 42 LEs                 ; No         ; |tiles|control:comb_4|Selector60                                                                         ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 12 LEs               ; 14 LEs                 ; No         ; |tiles|control:comb_4|Selector67                                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------+
 
 
@@ -972,31 +1360,42 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+-------------------------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control:comb_4|check_tile:ct"                                                       ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; p1   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; p2   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; p3   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------+
 ; Port Connectivity Checks: "control:comb_4|counter:c_one_hz" ;
 +---------------+-------+----------+--------------------------+
 ; Port          ; Type  ; Severity ; Details                  ;
 +---------------+-------+----------+--------------------------+
-; speed[23..19] ; Input ; Info     ; Stuck at VCC             ;
-; speed[15..12] ; Input ; Info     ; Stuck at VCC             ;
-; speed[6..0]   ; Input ; Info     ; Stuck at VCC             ;
-; speed[27..26] ; Input ; Info     ; Stuck at GND             ;
-; speed[11..7]  ; Input ; Info     ; Stuck at GND             ;
-; speed[25]     ; Input ; Info     ; Stuck at VCC             ;
-; speed[24]     ; Input ; Info     ; Stuck at GND             ;
-; speed[18]     ; Input ; Info     ; Stuck at GND             ;
-; speed[17]     ; Input ; Info     ; Stuck at VCC             ;
-; speed[16]     ; Input ; Info     ; Stuck at GND             ;
+; speed[22..18] ; Input ; Info     ; Stuck at VCC             ;
+; speed[14..11] ; Input ; Info     ; Stuck at VCC             ;
+; speed[5..0]   ; Input ; Info     ; Stuck at VCC             ;
+; speed[27..25] ; Input ; Info     ; Stuck at GND             ;
+; speed[10..6]  ; Input ; Info     ; Stuck at GND             ;
+; speed[24]     ; Input ; Info     ; Stuck at VCC             ;
+; speed[23]     ; Input ; Info     ; Stuck at GND             ;
+; speed[17]     ; Input ; Info     ; Stuck at GND             ;
+; speed[16]     ; Input ; Info     ; Stuck at VCC             ;
+; speed[15]     ; Input ; Info     ; Stuck at GND             ;
 +---------------+-------+----------+--------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "control:comb_4|generator:g"                                                               ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; data[2..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control:comb_4|generator:g"                                                         ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; data ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------+
@@ -1024,27 +1423,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 101                         ;
-; cycloneiii_ff         ; 203                         ;
-;     ENA               ; 11                          ;
+; cycloneiii_ff         ; 200                         ;
+;     ENA               ; 32                          ;
 ;     ENA SCLR          ; 35                          ;
 ;     SCLR SLD          ; 9                           ;
 ;     SLD               ; 28                          ;
-;     plain             ; 120                         ;
-; cycloneiii_lcell_comb ; 496                         ;
-;     arith             ; 174                         ;
-;         2 data inputs ; 142                         ;
-;         3 data inputs ; 32                          ;
-;     normal            ; 322                         ;
+;     plain             ; 96                          ;
+; cycloneiii_lcell_comb ; 433                         ;
+;     arith             ; 167                         ;
+;         2 data inputs ; 143                         ;
+;         3 data inputs ; 24                          ;
+;     normal            ; 266                         ;
 ;         0 data inputs ; 4                           ;
 ;         1 data inputs ; 25                          ;
-;         2 data inputs ; 37                          ;
-;         3 data inputs ; 62                          ;
-;         4 data inputs ; 194                         ;
+;         2 data inputs ; 31                          ;
+;         3 data inputs ; 52                          ;
+;         4 data inputs ; 154                         ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 9                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.00                        ;
-; Average LUT depth     ; 3.77                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.04                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1063,7 +1462,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Apr 01 16:53:19 2019
+    Info: Processing started: Wed Apr 03 16:54:43 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tiles -c tiles
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1075,14 +1474,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file /work/c
     Info (12023): Found entity 1: vga_address_translator File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/Lab_6/files/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file /work/cscb58/piano_tap_tap/cscb58_project/lab_6/files/vga_adapter/vga_adapter.v
     Info (12023): Found entity 1: vga_adapter File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/Lab_6/files/vga_adapter/vga_adapter.v Line: 78
+Warning (10229): Verilog HDL Expression warning at tiles.v(254): truncated literal to match 7 bits File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 254
 Info (12021): Found 7 design units, including 7 entities, in source file output_files/tiles.v
     Info (12023): Found entity 1: tiles File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 2
     Info (12023): Found entity 2: control File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 115
-    Info (12023): Found entity 3: check_tile File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 474
-    Info (12023): Found entity 4: generator File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 515
-    Info (12023): Found entity 5: counter File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 541
-    Info (12023): Found entity 6: display_lives File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 560
-    Info (12023): Found entity 7: hex_decoder File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 582
+    Info (12023): Found entity 3: check_tile File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 417
+    Info (12023): Found entity 4: generator File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 459
+    Info (12023): Found entity 5: counter File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 485
+    Info (12023): Found entity 6: display_lives File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 504
+    Info (12023): Found entity 7: hex_decoder File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 526
 Critical Warning (10846): Verilog HDL Instantiation warning at tiles.v(94): instance has no name File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 94
 Info (12127): Elaborating entity "tiles" for the top level hierarchy
 Warning (10034): Output port "LEDG[3]" at tiles.v(28) has no driver File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 28
@@ -1135,26 +1535,23 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/Lab_6/files/vga_adapter/vga_adapter.v Line: 252
 Info (12128): Elaborating entity "control" for hierarchy "control:comb_4" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 94
-Warning (10036): Verilog HDL or VHDL warning at tiles.v(141): object "t_c" assigned a value but never read File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 141
-Warning (10230): Verilog HDL assignment warning at tiles.v(239): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 239
-Warning (10230): Verilog HDL assignment warning at tiles.v(246): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 246
-Warning (10230): Verilog HDL assignment warning at tiles.v(260): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 260
-Warning (10230): Verilog HDL assignment warning at tiles.v(280): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 280
-Warning (10230): Verilog HDL assignment warning at tiles.v(446): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 446
-Warning (10230): Verilog HDL assignment warning at tiles.v(459): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 459
-Info (12128): Elaborating entity "display_lives" for hierarchy "control:comb_4|display_lives:d" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 167
-Info (12128): Elaborating entity "generator" for hierarchy "control:comb_4|generator:g" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 173
-Info (12128): Elaborating entity "counter" for hierarchy "control:comb_4|counter:c" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 179
-Warning (10230): Verilog HDL assignment warning at tiles.v(556): truncated value with size 32 to match size of target (1) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 556
-Info (12128): Elaborating entity "check_tile" for hierarchy "control:comb_4|check_tile:ct" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 199
+Warning (10036): Verilog HDL or VHDL warning at tiles.v(142): object "t_c" assigned a value but never read File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 142
+Warning (10036): Verilog HDL or VHDL warning at tiles.v(146): object "tile" assigned a value but never read File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 146
+Warning (10036): Verilog HDL or VHDL warning at tiles.v(156): object "read_counter" assigned a value but never read File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 156
+Warning (10230): Verilog HDL assignment warning at tiles.v(244): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 244
+Warning (10230): Verilog HDL assignment warning at tiles.v(253): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 253
+Warning (10230): Verilog HDL assignment warning at tiles.v(267): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 267
+Warning (10230): Verilog HDL assignment warning at tiles.v(287): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 287
+Warning (10230): Verilog HDL assignment warning at tiles.v(389): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 389
+Warning (10230): Verilog HDL assignment warning at tiles.v(402): truncated value with size 8 to match size of target (7) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 402
+Info (12128): Elaborating entity "display_lives" for hierarchy "control:comb_4|display_lives:d" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 168
+Info (12128): Elaborating entity "generator" for hierarchy "control:comb_4|generator:g" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 174
+Info (12128): Elaborating entity "counter" for hierarchy "control:comb_4|counter:c" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 180
+Warning (10230): Verilog HDL assignment warning at tiles.v(500): truncated value with size 32 to match size of target (1) File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 500
+Info (12128): Elaborating entity "check_tile" for hierarchy "control:comb_4|check_tile:ct" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 200
 Info (12128): Elaborating entity "hex_decoder" for hierarchy "hex_decoder:h1" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 100
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDG[3]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 28
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[10]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[11]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[12]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
-    Warning (13410): Pin "LEDR[13]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
     Warning (13410): Pin "LEDR[14]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
     Warning (13410): Pin "LEDR[15]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
     Warning (13410): Pin "LEDR[16]" is stuck at GND File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 27
@@ -1190,17 +1587,17 @@ Warning (21074): Design contains 18 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[12]" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 24
     Warning (15610): No output dependent on input pin "SW[13]" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 24
     Warning (15610): No output dependent on input pin "SW[14]" File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/hi/output_files/tiles.v Line: 24
-Info (21057): Implemented 612 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 563 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 78 output pins
-    Info (21061): Implemented 501 logic cells
+    Info (21061): Implemented 452 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 48 warnings
-    Info: Peak virtual memory: 4816 megabytes
-    Info: Processing ended: Mon Apr 01 16:53:32 2019
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 46 warnings
+    Info: Peak virtual memory: 4803 megabytes
+    Info: Processing ended: Wed Apr 03 16:54:56 2019
     Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:28
+    Info: Total CPU time (on all processors): 00:00:26
 
 
 +------------------------------------------+
