@@ -1,0 +1,51 @@
+
+State Machine - |musicbox|datapath:d1|y_pos
+Name y_pos.0111001 y_pos.0101100 y_pos.0011111 y_pos.0010010 y_pos.0001010 y_pos.0000101 y_pos.0000000 y_pos.1000110 
+y_pos.0000000 0 0 0 0 0 0 0 0 
+y_pos.0000101 0 0 0 0 0 1 1 0 
+y_pos.0001010 0 0 0 0 1 0 1 0 
+y_pos.0010010 0 0 0 1 0 0 1 0 
+y_pos.0011111 0 0 1 0 0 0 1 0 
+y_pos.0101100 0 1 0 0 0 0 1 0 
+y_pos.0111001 1 0 0 0 0 0 1 0 
+y_pos.1000110 0 0 0 0 0 0 1 1 
+
+State Machine - |musicbox|datapath:d1|y_pos_prev
+Name y_pos_prev.0111001 y_pos_prev.0101100 y_pos_prev.0011111 y_pos_prev.0010010 y_pos_prev.0001010 y_pos_prev.0000101 y_pos_prev.0000000 y_pos_prev.1000110 
+y_pos_prev.0000000 0 0 0 0 0 0 0 0 
+y_pos_prev.0000101 0 0 0 0 0 1 1 0 
+y_pos_prev.0001010 0 0 0 0 1 0 1 0 
+y_pos_prev.0010010 0 0 0 1 0 0 1 0 
+y_pos_prev.0011111 0 0 1 0 0 0 1 0 
+y_pos_prev.0101100 0 1 0 0 0 0 1 0 
+y_pos_prev.0111001 1 0 0 0 0 0 1 0 
+y_pos_prev.1000110 0 0 0 0 0 0 1 1 
+
+State Machine - |musicbox|datapath:d1|state
+Name state.DONE state.ERASE state.DRAW state.WAIT 
+state.WAIT 0 0 0 0 
+state.DRAW 0 0 1 1 
+state.ERASE 0 1 0 1 
+state.DONE 1 0 0 1 
+
+State Machine - |musicbox|control:c1|curr_state
+Name curr_state.PLAY_SELECTED curr_state.WAIT_16 curr_state.WAIT_61 curr_state.SELECT_6 curr_state.WAIT_65 curr_state.WAIT_56 curr_state.SELECT_5 curr_state.WAIT_54 curr_state.WAIT_45 curr_state.SELECT_4 curr_state.WAIT_43 curr_state.WAIT_34 curr_state.SELECT_3 curr_state.WAIT_32 curr_state.WAIT_23 curr_state.SELECT_2 curr_state.WAIT_21 curr_state.WAIT_12 curr_state.SELECT_1 
+curr_state.SELECT_1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+curr_state.WAIT_12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+curr_state.WAIT_21 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+curr_state.SELECT_2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+curr_state.WAIT_23 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+curr_state.WAIT_32 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+curr_state.SELECT_3 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+curr_state.WAIT_34 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+curr_state.WAIT_43 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+curr_state.SELECT_4 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+curr_state.WAIT_45 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+curr_state.WAIT_54 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.SELECT_5 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.WAIT_56 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.WAIT_65 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.SELECT_6 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.WAIT_61 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.WAIT_16 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.PLAY_SELECTED 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
