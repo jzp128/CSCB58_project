@@ -548,3 +548,16 @@ module hex_decoder(hex_digit, segments);
             default: segments = 7'h7f;
         endcase
 endmodule
+
+module song4to1_mux( input [3:0] mary,                 // 4-bit input called a
+                 input [3:0] hotcross,                 // 4-bit input called b
+                 input [3:0] ode,                 // 4-bit input called c
+                 input [3:0] mario,                 // 4-bit input called d
+                 input [1:0] sel,               // input sel used to select between a,b,c,d
+                 output [3:0] out);             // 4-bit output based on input sel
+ 
+   // When sel[1] is 0, (sel[0]? hotcross:mary) is selected and when sel[1] is 1, (sel[0] ? mario:ode) is taken
+   // When sel[0] is 0, mary is sent to output, else hotcross and when sel[0] is 0, ode is sent to output, else mario
+   assign out = sel[1] ? (sel[0] ? mario : ode) : (sel[0] ? hotcross : mary); 
+ 
+endmodule
