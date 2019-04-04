@@ -79,10 +79,11 @@ module musicbox
 		.prev(KEY[2]),
 		.next(KEY[1]),
 		.play(KEY[3]),
-		.song_selected(selected),
-		.start_song(start_song),
-		.song_done(SW[0]) // DEBUG FOR NOW CAUSE I DONT HAVE THE SOUND MODULE
+		.song_selected(selected), // this gives you the selected song (0,1,2,3,4,5)
+		.start_song(start_song), // this is the signal you can use to see if a song is in progress or not (maybe we can just use key[3] also)
+		.song_done(SW[0]) // DEBUG FOR NOW CAUSE I DONT HAVE THE SOUND MODULE (this is an input to check if the song playing is finished or not)
 	);
+	// so far it just draws dots, but we can change its shapes
 	datapath d1(
 		.clk(CLOCK_50),
 		.selected(selected),
@@ -123,9 +124,9 @@ module datapath(
 			
 			ERASE: begin
 				// do erasing
-				y_out <= y_pos_prev;
-				c_out <= 3'b111;
-				y_pos_prev <= y_pos;
+				y_out = y_pos_prev;
+				c_out = 3'b111;
+				y_pos_prev = y_pos;
 				state = DONE;
 			end
 
@@ -133,41 +134,41 @@ module datapath(
 					// get location to draw the dot based on song
 					case(selected)
 						3'd0: begin
-							y_pos <= 7'd5;
+							y_pos = 7'd5;
 						end
 						3'd1: begin
-							y_pos <= 7'd18;
+							y_pos = 7'd18;
 						end
 						3'd2: begin
-							y_pos <= 7'd31;
+							y_pos = 7'd31;
 						end
 						3'd3: begin
-							y_pos <= 7'd44;
+							y_pos = 7'd44;
 						end
 						3'd4: begin
-							y_pos <= 7'd57;
+							y_pos = 7'd57;
 						end
 						3'd5: begin
-							y_pos <= 7'd70;
+							y_pos = 7'd70;
 						end
 					endcase
 						if (y_pos != y_pos_prev) begin
 							// draws green dot
-							y_out <= y_pos;
-							c_out <= 3'b010;
+							y_out = y_pos;
+							c_out = 3'b010;
 							state = ERASE;
 						end
 						else if(start_song) begin
 							// draws a red dot over the green
-							y_out <= y_pos;
-							c_out <= 3'b100;
+							y_out = y_pos;
+							c_out = 3'b100;
 							state = DONE;
 						end
 						else
 							state = DONE;
 			end
 			DONE: begin
-				state <= WAIT;
+				state = WAIT;
 			end
 	endcase
 			
@@ -204,12 +205,10 @@ module control(
 					SELECT_6 = 5'd15,
 					WAIT_61 = 5'd16,
 					WAIT_16 = 5'd17,
-					PLAY_WAIT = 5'd18,
-					PLAY_SELECTED = 5'd19;
+					PLAY_SELECTED = 5'd18;
 
 	// the wait states are there to stop the buttons from bouncing
 	reg [4:0] prev_state; // only store the song ones
-	initial prev_state = SELECT_1;
 	always@(*)
 	begin: state_table
 		case (curr_state)
@@ -222,8 +221,8 @@ module control(
 					next_state = WAIT_12;
 				end
 				else if (~play) begin
-					prev_state = SELECT_1;
-					next_state = PLAY_SELECTED;
+					prev_state <= SELECT_1;
+					next_state <= PLAY_SELECTED;
 					end
 				else
 					next_state = SELECT_1;
@@ -238,8 +237,8 @@ module control(
 					next_state = WAIT_23;
 				end
 				else if (~play) begin
-					prev_state = SELECT_2;
-					next_state = PLAY_SELECTED;
+					prev_state <= SELECT_2;
+					next_state <= PLAY_SELECTED;
 					end
 				else
 					next_state = SELECT_2;
@@ -256,8 +255,8 @@ module control(
 					next_state = WAIT_34;
 				end
 				else if (~play) begin
-					prev_state = SELECT_3;
-					next_state = PLAY_SELECTED;
+					prev_state <= SELECT_3;
+					next_state <= PLAY_SELECTED;
 					end
 				else
 					next_state = SELECT_3;
@@ -274,8 +273,8 @@ module control(
 					next_state = WAIT_45;
 				end
 				else if (~play) begin
-					prev_state = SELECT_4;
-					next_state = PLAY_SELECTED;
+					prev_state <= SELECT_4;
+					next_state <= PLAY_SELECTED;
 					end
 				else
 					next_state = SELECT_4;
@@ -292,8 +291,8 @@ module control(
 					next_state = WAIT_56;
 				end
 				else if (~play) begin
-					prev_state = SELECT_5;
-					next_state = PLAY_SELECTED;
+					prev_state <= SELECT_5;
+					next_state <= PLAY_SELECTED;
 					end
 				else
 					next_state = SELECT_5;
@@ -310,8 +309,8 @@ module control(
 					next_state = WAIT_61;
 				end
 				else if (~play) begin
-					prev_state = SELECT_6;
-					next_state = PLAY_SELECTED;
+					prev_state <= SELECT_6;
+					next_state <= PLAY_SELECTED;
 					end
 				else
 					next_state = SELECT_6;
@@ -319,7 +318,7 @@ module control(
 			
 			WAIT_61: next_state = next ? SELECT_1 : WAIT_61;
 
-			PLAY_SELECTED: next_state = song_done ? prev_state : PLAY_SELECTED;
+			PLAY_SELECTED: next_state = song_done ? prev_state : PLAY_SELECTED; // this part is glitchy af for some reason, probably because prev_state can be unset?
 			default : next_state = SELECT_1;  // should never happen tbh
 		endcase
 	end // state table
