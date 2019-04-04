@@ -1,4 +1,4 @@
-// Part 2 skeleton
+`timescale 1ns / 1ns
 
 module musicbox
 	(
@@ -16,7 +16,9 @@ module musicbox
 		VGA_R,   						//	VGA Red[9:0]
 		VGA_G,	 						//	VGA Green[9:0]
 		VGA_B,   						//	VGA Blue[9:0]
-		HEX0
+		HEX0,
+		HEX2,
+		HEX3
 	);
 
 	input			CLOCK_50;				//	50 MHz
@@ -24,6 +26,7 @@ module musicbox
 	input   [3:0]   KEY;
 	output  [9:0] 	LEDR;
 	output  [6:0] HEX0;
+	output [6:0] HEX2,HEX3;
 	// Declare your inputs and outputs here
 	// Do not change the following outputs
 	output			VGA_CLK;   				//	VGA Clock
@@ -74,14 +77,21 @@ module musicbox
 	wire done;
 	hex_decoder h0(selected,HEX0);
 	assign LEDR[9] = start_song;
+	wire [5:0] debug;
+	
+	hex_decoder h2(debug[3:0],HEX2);
+	hex_decoder h3(debug[5:3],HEX3);
+
 	control c1(
+		.resetn(KEY[0]),
 		.clk(CLOCK_50),
 		.prev(KEY[2]),
 		.next(KEY[1]),
 		.play(KEY[3]),
 		.song_selected(selected), // this gives you the selected song (0,1,2,3,4,5)
 		.start_song(start_song), // this is the signal you can use to see if a song is in progress or not (maybe we can just use key[3] also)
-		.song_done(SW[0]) // DEBUG FOR NOW CAUSE I DONT HAVE THE SOUND MODULE (this is an input to check if the song playing is finished or not)
+		.song_done(SW[0]), // DEBUG FOR NOW CAUSE I DONT HAVE THE SOUND MODULE (this is an input to check if the song playing is finished or not)
+		.state_debug(debug)
 	);
 	// so far it just draws dots, but we can change its shapes
 	datapath d1(
@@ -103,7 +113,7 @@ module datapath(
 	output reg [6:0] y_out,
 	output reg [2:0] c_out
 	);
-	
+
 	localparam  WAIT = 2'd0,
 					DRAW = 2'd1,
 					ERASE = 2'd2,
@@ -161,6 +171,7 @@ module datapath(
 						else if(start_song) begin
 							// draws a red dot over the green
 							y_out = y_pos;
+							// we can probably check if its red of green here too
 							c_out = 3'b100;
 							state = DONE;
 						end
@@ -176,6 +187,7 @@ module datapath(
 endmodule
 
 module control(
+	input resetn,
 	input clk,
 	input prev,
 	input next,
@@ -183,8 +195,10 @@ module control(
 	input song_done,
 	input draw_done,
 	output reg [2:0] song_selected,
-	output reg start_song
+	output reg start_song,
+	output [4:0] state_debug
 );
+	assign state_debug = curr_state;
 	reg [4:0] curr_state, next_state;
 	localparam 
 					SELECT_1 = 5'd0,
@@ -309,8 +323,8 @@ module control(
 					next_state = WAIT_61;
 				end
 				else if (~play) begin
-					prev_state <= SELECT_6;
-					next_state <= PLAY_SELECTED;
+					prev_state = SELECT_6;
+					next_state = PLAY_SELECTED;
 					end
 				else
 					next_state = SELECT_6;
@@ -397,7 +411,7 @@ module control(
 	end// enable_signals
 	always@(posedge clk)
     begin: state_FFS
-      curr_state <= next_state;
+      curr_state = ~resetn ?  SELECT_1 : next_state;
 		
     end
 endmodule
