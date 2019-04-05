@@ -1,0 +1,34 @@
+
+State Machine - |newtiles|control:comb_4|prev_state
+Name prev_state.CLEAR_SCREEN prev_state.WIN prev_state.GAME_OVER prev_state.CHECK_LEVEL prev_state.CHECK_TILE prev_state.FRAME prev_state.ERASE_TILE prev_state.DRAW_T prev_state.INIT_T1 prev_state.DRAW_TILES prev_state.PAUSE prev_state.RESET prev_state.DRAW_LINE prev_state.START 
+prev_state.START 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+prev_state.DRAW_LINE 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+prev_state.RESET 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+prev_state.PAUSE 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+prev_state.DRAW_TILES 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+prev_state.INIT_T1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+prev_state.DRAW_T 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+prev_state.ERASE_TILE 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+prev_state.FRAME 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+prev_state.CHECK_TILE 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+prev_state.CHECK_LEVEL 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+prev_state.GAME_OVER 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+prev_state.WIN 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+prev_state.CLEAR_SCREEN 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |newtiles|control:comb_4|state
+Name state.CLEAR_SCREEN state.WIN state.GAME_OVER state.CHECK_LEVEL state.CHECK_TILE state.FRAME state.ERASE_TILE state.DRAW_T state.INIT_T1 state.DRAW_TILES state.PAUSE state.RESET state.DRAW_LINE state.START 
+state.START 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.DRAW_LINE 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.RESET 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.PAUSE 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.DRAW_TILES 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.INIT_T1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.DRAW_T 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.ERASE_TILE 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.FRAME 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.CHECK_TILE 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.CHECK_LEVEL 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.GAME_OVER 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.WIN 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.CLEAR_SCREEN 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
