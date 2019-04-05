@@ -1,0 +1,3 @@
+Warning (10268): Verilog HDL information at sound.v(221): always construct contains both blocking and non-blocking assignments File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/music_box/sound.v Line: 221
+Info (10281): Verilog HDL Declaration information at musicbox.v(28): object "LEDR" differs only in case from object "ledr" in the same scope File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/music_box/musicbox.v Line: 28
+Warning (10268): Verilog HDL information at musicbox.v(243): always construct contains both blocking and non-blocking assignments File: C:/Work/CSCB58/piano_tap_tap/CSCB58_project/music_box/musicbox.v Line: 243

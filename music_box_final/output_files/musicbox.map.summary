@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Apr 04 16:14:33 2019
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : musicbox
+Top-level Entity Name : musicbox
+Family : Cyclone IV E
+Total logic elements : 1,099
+    Total combinational functions : 804
+    Dedicated logic registers : 706
+Total registers : 706
+Total pins : 107
+Total virtual pins : 0
+Total memory bits : 57,600
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1
