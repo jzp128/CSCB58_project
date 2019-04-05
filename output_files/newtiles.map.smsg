@@ -1,3 +1,0 @@
-Warning (10268): Verilog HDL information at tiles.v(224): always construct contains both blocking and non-blocking assignments File: C:/Users/shruti/Documents/CSCB58_project/hi/output_files/tiles.v Line: 224
-Info (10281): Verilog HDL Declaration information at tiles.v(143): object "start" differs only in case from object "START" in the same scope File: C:/Users/shruti/Documents/CSCB58_project/hi/output_files/tiles.v Line: 143
-Info (10281): Verilog HDL Declaration information at tiles.v(118): object "pause" differs only in case from object "PAUSE" in the same scope File: C:/Users/shruti/Documents/CSCB58_project/hi/output_files/tiles.v Line: 118
